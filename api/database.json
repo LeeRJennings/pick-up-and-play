@@ -4,9 +4,19 @@
       "email": "Lee@nss.com",
       "name": "Lee Jennings",
       "id": 1
+    },
+    {
+      "email": "davos@nss.com",
+      "name": "Davos Cat",
+      "id": 2
+    },
+    {
+      "email": "tower@power.com",
+      "name": "Kareem Abdul-Jabaar",
+      "id": 3
     }
   ],
   "games": [],
-  "like": [],
+  "likes": [],
   "stats": []
 }
