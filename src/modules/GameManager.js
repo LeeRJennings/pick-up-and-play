@@ -9,3 +9,8 @@ export const addGame = (newGame) => {
         body: JSON.stringify(newGame)
     }).then(response => response.json())
 }
+
+export const getAllGames = () => {
+    return fetch(`${remoteURL}/games?_expand=user&_expand=area&_expand=skillLevel`)
+    .then(response => response.json())
+}

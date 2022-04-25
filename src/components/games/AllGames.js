@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { getAllGames } from "../../modules/GameManager"
 
 export const AllGames = () => {
 

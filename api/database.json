@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "Lee@nss.com",
+      "email": "lee@nss.com",
       "name": "Lee Jennings",
       "id": 1
     },
@@ -11,12 +11,77 @@
       "id": 2
     },
     {
-      "email": "tower@power.com",
+      "email": "kareem@nss.com",
       "name": "Kareem Abdul-Jabaar",
       "id": 3
+    },
+    {
+      "email": "cap@nss.com",
+      "name": "Captain Sully",
+      "id": 4
     }
   ],
-  "games": [],
+  "games": [
+    {
+      "userId": 1,
+      "areaId": 2,
+      "parkName": "East Park",
+      "address": "123 address rd",
+      "date": "2022-04-26",
+      "time": "03:10",
+      "skillLevelId": 1,
+      "additionalInfo": "cleats required, white & dark shirt required, dogs allowed at park, bathrooms nearby, drinking water nearby",
+      "id": 1
+    }
+  ],
   "likes": [],
-  "stats": []
+  "stats": [],
+  "skillLevels": [
+    {
+      "id": 1,
+      "skillLevel": "Beginner"
+    },
+    {
+      "id": 2,
+      "skillLevel": "Intermediate"
+    },
+    {
+      "id": 3,
+      "skillLevel": "Advanced"
+    }
+  ],
+  "areas": [
+    {
+      "id": 1,
+      "name": "North Nashville"
+    },
+    {
+      "id": 2,
+      "name": "East Nashville"
+    },
+    {
+      "id": 3,
+      "name": "South Nashville"
+    },
+    {
+      "id": 4,
+      "name": "West Nashville"
+    },
+    {
+      "id": 5,
+      "name": "Brentwood"
+    },
+    {
+      "id": 6,
+      "name": "Clarksville"
+    },
+    {
+      "id": 7,
+      "name": "Hendersonville"
+    },
+    {
+      "id": 8,
+      "name": "Smyrna"
+    }
+  ]
 }
