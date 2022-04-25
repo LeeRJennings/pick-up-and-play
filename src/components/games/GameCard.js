@@ -1,7 +1,7 @@
 import { dateFormatter } from "../../helpers/dateFormatter"
 import { timeFormatter } from "../../helpers/timeFormatter"
 
-export const GameCard = ({game}) => (
+export const GameCard = ({game, loggedInUser, handleDeleteGame}) => (
     <div className="card">
         <div className="cardContent">
             <h2>{game.parkName}</h2>
@@ -17,7 +17,11 @@ export const GameCard = ({game}) => (
                 <br/>
                 Skill Level: {game.skillLevel.skillLevel}
                 <br/>
-                Addition Info: {game.additionalInfo}
+                {game.additionalInfo === "" ? "" : `Additional Info: ${game.additionalInfo}`}
+                {game.userId === loggedInUser.id ?
+                    <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
+                    : ""
+                }
             </p>
         </div>
     </div>
