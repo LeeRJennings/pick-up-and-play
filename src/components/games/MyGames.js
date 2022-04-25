@@ -1,15 +1,14 @@
-import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getAllGames } from "../../modules/GameManager"
+import { getGamesByUserId } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 
-export const AllGames = () => {
+export const MyGames = () => {
+    const loggedInUser = JSON.parse(sessionStorage.puap_user)
+
     const [games, setGames] = useState([])
 
-    const navigate = useNavigate()
-
     useEffect(() => {
-        getAllGames()
+        getGamesByUserId(loggedInUser.id)
         .then(games => {
             setGames(games)
         })
@@ -17,7 +16,6 @@ export const AllGames = () => {
 
     return (
         <>
-            <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
             <div className="gameCards">
                 {games.map(game => 
                     <GameCard
