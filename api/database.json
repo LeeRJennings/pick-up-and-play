@@ -61,17 +61,6 @@
       "parkName": "Brentwood Baptist",
       "address": "ccb nvn vbncvb",
       "date": "2022-04-30",
-      "time": "12:20",
-      "skillLevelId": 1,
-      "additionalInfo": "",
-      "id": 4
-    },
-    {
-      "userId": 3,
-      "areaId": 5,
-      "parkName": "Brentwood Baptist",
-      "address": "ccb nvn vbncvb",
-      "date": "2022-04-30",
       "time": "00:21",
       "skillLevelId": 1,
       "additionalInfo": "",
@@ -87,20 +76,15 @@
       "skillLevelId": 1,
       "additionalInfo": "",
       "id": 6
-    },
-    {
-      "userId": 3,
-      "areaId": 1,
-      "parkName": "AM TEST",
-      "address": "xcvxcvxcvxbcvnbxcvdfdvfvxcbcbdfgb",
-      "date": "2022-05-05",
-      "time": "00:26",
-      "skillLevelId": 1,
-      "additionalInfo": "",
-      "id": 7
     }
   ],
-  "likes": [],
+  "likes": [
+    {
+      "userId": 1,
+      "gameId": 2,
+      "id": 1
+    }
+  ],
   "stats": [],
   "skillLevels": [
     {
