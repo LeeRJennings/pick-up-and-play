@@ -1,6 +1,6 @@
 const remoteURL = "http://localhost:1968"
 
-export const getAllStates = () => {
-    return fetch (`${remoteURL}/states`)
+export const getAllAreas = () => {
+    return fetch (`${remoteURL}/areas`)
     .then(response => response.json())
 }

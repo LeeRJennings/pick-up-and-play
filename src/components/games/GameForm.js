@@ -2,25 +2,26 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { addGame } from "../../modules/GameManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
-import { getAllStates } from "../../modules/StatesManager"
+import { getAllAreas } from "../../modules/AreasManager"
+import "./GameForm.css"
 
 
 export const GameForm =() => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
+    const infoArray = []
 
     const [game, setGame] = useState({
         userId: loggedInUser.id,
+        areaId: 0,
         parkName: "",
         address: "",
-        city: "",
-        stateId: 0,
         date: "",
         time: "",
         skillLevelId: 0,
-        additionalInfo: []
+        additionalInfo: ""
     })
     const [skillLevels, setSkillLevels] = useState([])
-    const [states, setStates] = useState([])
+    const [areas, setAreas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     const navigate = useNavigate()
@@ -40,27 +41,58 @@ export const GameForm =() => {
         .then(skillLevels => {
             setSkillLevels(skillLevels)
         })
-        getAllStates()
-        .then(states => {
-            setStates(states)
+        getAllAreas()
+        .then(areas => {
+            setAreas(areas)
         })
         setIsLoading(false)
     }, [])
 
-    const handleClickAddGame = (e) => {
+    const handleClickCreateGame = (e) => {
         e.preventDefault()
-        if (game.parkName === "" || game.address === "" || game.city === "" || game.stateId === 0 || game.date === "" || game.time === "" || game.skillLevelId === 0) {
+        if (game.parkName === "" || game.address === "" || game.city === "" || game.areaId === 0 
+            || game.zipCode === "" || game.date === "" || game.time === "" || game.skillLevelId === 0) {
             window.alert('All fields except "Additional Info" are required')
         } else {
+            game.additionalInfo = infoArray.join(", ")
             setIsLoading(true)
             addGame(game)
             .then(() => navigate("/"))
         }
     }
 
+    const handleCheckboxes = (e) => {
+        let val = e.target.value
+        if (infoArray.includes(val)) {
+            let valIndex = infoArray.indexOf(val)
+            infoArray.splice(valIndex, 1)
+        } else {
+            infoArray.push(val)
+        }    
+    }
+
     return (
         <form className="gameForm">
             <h2 className="gameForm__title">Add a New Game</h2>
+            <fieldset>
+				<div className="form-group">
+					<label htmlFor="areaId">Area: </label>
+					<select 
+                        value={game.areaId} 
+                        name="areaId" 
+                        id="areaId" 
+                        onChange={handleControlledInputChange} 
+                        required autoFocus 
+                        className="form-control" >
+						<option hidden disabled value="0">Select an Area</option>
+						{areas.map(area => (
+							<option key={area.id} value={area.id}>
+								{area.name}
+							</option>
+						))}
+					</select>
+				</div>
+			</fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="parkName">Park Name: </label>
@@ -89,38 +121,6 @@ export const GameForm =() => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="city">City: </label>
-                    <input 
-                        type="text" 
-                        id="city" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Layoutville" 
-                        value={game.city} />
-                </div>
-            </fieldset>
-            <fieldset>
-				<div className="form-group">
-					<label htmlFor="state">State: </label>
-					<select 
-                        value={game.stateId} 
-                        name="stateId" 
-                        id="stateId" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control" >
-						<option hidden disabled value="0">Select a state</option>
-						{states.map(state => (
-							<option key={state.id} value={state.id}>
-								{state.name}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-            <fieldset>
-                <div className="form-group">
                     <label htmlFor="date">Date: </label>
                     <input 
                         type="date" 
@@ -141,7 +141,7 @@ export const GameForm =() => {
                         required autoFocus
                         className="form-control"  
                         value={game.time} />
-                    <small>all times are in Central Time</small>
+                    <small>  all times are in Central Time</small>
                 </div>
             </fieldset>
             <fieldset>
@@ -163,16 +163,48 @@ export const GameForm =() => {
 					</select>
 				</div>
 			</fieldset>
+            <fieldset>
+                <div className="form-group checkboxes">
+                    <label>Additional Info:</label>
+                    <div>
+                        <input type="checkbox" value="cleats required" onChange={handleCheckboxes}/>
+                        <label>cleats required</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="white & dark shirt required" onChange={handleCheckboxes}/>
+                        <label>white & dark shirt required</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="barefoot friendly" onChange={handleCheckboxes}/>
+                        <label>barefoot friendly</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="dogs allowed at park" onChange={handleCheckboxes}/>
+                        <label>dogs allowed at park</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="playground nearby" onChange={handleCheckboxes}/>
+                        <label>playground nearby</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="bathrooms nearby" onChange={handleCheckboxes}/>
+                        <label>bathrooms nearby</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="drinking water nearby" onChange={handleCheckboxes}/>
+                        <label>drinking water nearby</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="all ages welcome" onChange={handleCheckboxes}/>
+                        <label>all ages welcome</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="18+" onChange={handleCheckboxes}/>
+                        <label>18+</label>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="button" disabled={isLoading} onClick={handleClickCreateGame}>Create Game</button>
         </form>
     )
 }
-
-// userId: loggedInUser.id,
-//         parkName: "",
-//         address: "",
-//         city: "",
-//         stateId: 0,
-//         date: "",
-//         time: "",
-//         skillLevelId: 0,
-//         additionalInfo: []
