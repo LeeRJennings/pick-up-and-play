@@ -20,6 +20,7 @@ export const EditGameForm = () => {
     const [skillLevels, setSkillLevels] = useState([])
     const [areas, setAreas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [isChecked, setIsChecked] = useState(true)
 
     const {gameId} = useParams()
     const navigate = useNavigate()
@@ -68,15 +69,29 @@ export const EditGameForm = () => {
         setIsLoading(false)
     }, [])
 
-    // const handleCheckboxes = (e) => {
-    //     let val = e.target.value
-    //     if (infoArray.includes(val)) {
-    //         let valIndex = infoArray.indexOf(val)
-    //         infoArray.splice(valIndex, 1)
-    //     } else {
-    //         infoArray.push(val)
-    //     }    
-    // }
+    const infoArray = game.additionalInfo.split(",")
+    console.log(infoArray)
+    const handleCheckboxes = (e) => {
+        let val = e.target.value
+        if (infoArray.includes(val)) {
+            let valIndex = infoArray.indexOf(val)
+            infoArray.splice(valIndex, 1)
+            game.additionalInfo = infoArray.join(", ")
+        } else {
+            infoArray.push(val)
+            game.additionalInfo = infoArray.join(", ")
+        }
+        // console.log(infoArray) 
+    }
+    
+    const handleDefaultCheck = (e) => {
+        let val = e.target.value
+        if (infoArray.includes(val)) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     // if additionalInfo.includes(checkboxValue) {
     //     make the checkbox checked on page render
@@ -174,49 +189,51 @@ export const EditGameForm = () => {
 					</select>
 				</div>
 			</fieldset>
-            {/* <fieldset>
+            <fieldset>
                 <div className="form-group checkboxes">
                     <label>Additional Info:</label>
                     <div>
-                        <input type="checkbox" value="cleats required" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="cleats required" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>cleats required</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="white & dark shirt required" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="white & dark shirt required" onChange={handleCheckboxes} defaultChecked={handleDefaultCheck}/>
                         <label>white & dark shirt required</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="barefoot friendly" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="barefoot friendly" onChange={handleCheckboxes} defaultChecked={handleDefaultCheck}/>
                         <label>barefoot friendly</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="dogs allowed at park" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="dogs allowed at park" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>dogs allowed at park</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="playground nearby" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="playground nearby" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>playground nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="bathrooms nearby" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="bathrooms nearby" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>bathrooms nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="drinking water nearby" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="drinking water nearby" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>drinking water nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="all ages welcome" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="all ages welcome" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>all ages welcome</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="18+" onChange={handleCheckboxes}/>
+                        <input type="checkbox" value="18+" onChange={handleCheckboxes} defaultChecked={isChecked}/>
                         <label>18+</label>
                     </div>
                 </div>
-            </fieldset> */}
+            </fieldset>
             <button type="button" disabled={isLoading} onClick={updateExistingGame}>Save Edits</button>
             <button type="button" onClick={() => navigate("/")}>Cancel</button>
         </form>
     )
 }
+
+// {infoArray.includes("barefoot friendly") ? true : false}

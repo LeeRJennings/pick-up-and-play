@@ -22,7 +22,7 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame}) => (
                 <br/>
                 {game.userId === loggedInUser.id ? 
                     <Link to={`/${game.id}/edit`}>
-                        <button type="button">Edit</button>
+                        <button type="button" onClick={() => console.log(game.additionalInfo)}>Edit</button>
                     </Link>
                     : ""
                 }
