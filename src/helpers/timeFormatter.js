@@ -5,7 +5,7 @@ export const timeFormatter = (time) => {
         hour = 12
         return `${hour}:${minute} AM`
     } else if (hour <= 11) {
-        return `${time} AM`
+        return `${hour}:${minute} AM`
     } else if (hour === 13) {
         hour = 1
         return `${hour}:${minute} PM`

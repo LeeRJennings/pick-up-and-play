@@ -18,6 +18,7 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame}) => (
                 Skill Level: {game.skillLevel.skillLevel}
                 <br/>
                 {game.additionalInfo === "" ? "" : `Additional Info: ${game.additionalInfo}`}
+                <br/>
                 {game.userId === loggedInUser.id ?
                     <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
                     : ""
