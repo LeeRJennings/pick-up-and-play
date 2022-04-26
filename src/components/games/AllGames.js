@@ -42,6 +42,7 @@ export const AllGames = () => {
             userId: loggedInUser.id,
             gameId: gameId 
         }
+        // TODO refactor this so that the likeExists check is done in GameCard and if it comes back true the user sees a dislike button instead on a like button
         const likeExists = likes.find(like => like.gameId === newLike.gameId && like.userId === newLike.userId)
         if (likeExists) {
             return undefined
