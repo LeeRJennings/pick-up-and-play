@@ -76,6 +76,17 @@
       "skillLevelId": 1,
       "additionalInfo": "",
       "id": 6
+    },
+    {
+      "userId": 1,
+      "areaId": 1,
+      "parkName": "goan edit this game",
+      "address": "64 Edited blvd",
+      "date": "2022-04-29",
+      "time": "13:49",
+      "skillLevelId": 1,
+      "additionalInfo": "barefoot friendly, playground nearby, all ages welcome",
+      "id": 7
     }
   ],
   "likes": [

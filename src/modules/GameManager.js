@@ -23,5 +23,20 @@ export const getGamesByUserId =(loggedInUserId) => {
 export const deleteGame = (gameId) => {
     return fetch(`${remoteURL}/games/${gameId}`, {
         method: "DELETE"
-    }).then(result => result.json())
+    }).then(response => response.json())
+}
+
+export const getGameById = (gameId) => {
+    return fetch(`${remoteURL}/games/${gameId}?_expand=user&_expand=area&_expand=skillLevel`)
+    .then(response => response.json())
+}
+
+export const updateGame = (editedGame) => {
+    return fetch(`${remoteURL}/games/${editedGame.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedGame)
+    }).then(response => response.json())
 }
