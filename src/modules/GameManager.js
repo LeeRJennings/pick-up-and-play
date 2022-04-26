@@ -11,12 +11,12 @@ export const addGame = (newGame) => {
 }
 
 export const getAllGames = () => {
-    return fetch(`${remoteURL}/games?_expand=user&_expand=area&_expand=skillLevel`)
+    return fetch(`${remoteURL}/games?_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
     .then(response => response.json())
 }
 
-export const getGamesByUserId =(loggedInUserId) => {
-    return fetch(`${remoteURL}/games?userId=${loggedInUserId}&_expand=user&_expand=area&_expand=skillLevel`)
+export const getGamesByUserId =(userId) => {
+    return fetch(`${remoteURL}/games?userId=${userId}&_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
     .then(response => response.json())
 }
 
