@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { dateFormatter } from "../../helpers/dateFormatter"
 import { timeFormatter } from "../../helpers/timeFormatter"
 
@@ -19,6 +20,12 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame}) => (
                 <br/>
                 {game.additionalInfo === "" ? "" : `Additional Info: ${game.additionalInfo}`}
                 <br/>
+                {game.userId === loggedInUser.id ? 
+                    <Link to={`/${game.id}/edit`}>
+                        <button type="button">Edit</button>
+                    </Link>
+                    : ""
+                }
                 {game.userId === loggedInUser.id ?
                     <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
                     : ""

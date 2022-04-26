@@ -3,6 +3,7 @@ import { Routes, Route, Outlet, Navigate } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { AllGames } from "./games/AllGames";
+import { EditGameForm } from "./games/EditGameForm";
 import { GameForm } from "./games/GameForm";
 import { MyGames } from "./games/MyGames";
 
@@ -18,6 +19,7 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
                     <Route path="/" element={<AllGames />} />
                     <Route path="/create" element={<GameForm />} />
                     <Route path="/myGames" element={<MyGames />} />
+                    <Route path="/:gameId/edit" element={<EditGameForm />} />
                 </Route>
 
                 <Route path="/login" element={<Login setAuthUser={setAuthUser}/>} />
