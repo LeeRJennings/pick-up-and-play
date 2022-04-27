@@ -205,6 +205,9 @@ export const GameForm =() => {
                 </div>
             </fieldset>
             <button type="button" disabled={isLoading} onClick={handleClickCreateGame}>Create Game</button>
+            <button type="button" onClick={() => navigate("/")}>
+                Cancel
+            </button>
         </form>
     )
 }

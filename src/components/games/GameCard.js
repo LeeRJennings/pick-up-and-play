@@ -2,9 +2,9 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { dateFormatter } from "../../helpers/dateFormatter"
 import { timeFormatter } from "../../helpers/timeFormatter"
-import { getLikesByGameId, addLike } from "../../modules/LikesManager"
+import { getLikesByGameId } from "../../modules/LikesManager"
 
-export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, isLoading}) => {
+export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, isLoading, likes, handleDeleteLike}) => {
     const [numberOfLikes, setNumberOfLikes] = useState(0)
 
     const showLikes = (gameId) => {
@@ -17,11 +17,13 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
             <>👍 x {numberOfLikes}</>
         )
     }
+
+    const likeExists = likes.find(like => like.gameId === game.id && like.userId === loggedInUser.id)
     
     return (
         <div className="card">
             <div className="cardContent">
-                <h2>{game.parkName}</h2>
+                <h3>{game.parkName}</h3>
                 <p className="gameAddress">
                     {game.address}, {game.area.name} 
                 </p>
@@ -36,8 +38,11 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                     <br/>
                     {game.additionalInfo === "" ? "" : `Additional Info: ${game.additionalInfo}`}
                     <br/>
-                    <button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>Like</button>
-                    {showLikes(game.id)}
+                    {likeExists
+                        ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>Dislike</button>
+                            {showLikes(game.id)}</> 
+                        :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>Like</button>
+                            {showLikes(game.id)}</>}
                     <br/>
                     {game.userId === loggedInUser.id ? 
                         <Link to={`/${game.id}/edit`}>
