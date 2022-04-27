@@ -19,3 +19,14 @@ export const getAllLikes = () => {
     return fetch(`${remoteURL}/likes`)
     .then(response => response.json())
 }
+
+export const deleteLike = (likeId) => {
+    return fetch(`${remoteURL}/likes/${likeId}`, {
+        method: "DELETE"
+    }).then(result => result.json())
+}
+
+export const getLikesByUserId = (userId) => {
+    return fetch(`${remoteURL}/likes?userId=${userId}&_expand=game`)
+    .then(response => response.json())
+}

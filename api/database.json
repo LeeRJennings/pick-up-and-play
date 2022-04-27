@@ -30,7 +30,7 @@
       "date": "2022-04-26",
       "time": "03:10",
       "skillLevelId": 1,
-      "additionalInfo": "cleats required, white & dark shirt required, dogs allowed at park, bathrooms nearby, drinking water nearby",
+      "additionalInfo": "white & dark shirt required, dogs allowed at park, bathrooms nearby, drinking water nearby, git gud n stuff",
       "id": 1
     },
     {
@@ -108,8 +108,13 @@
     },
     {
       "userId": 1,
-      "gameId": 6,
+      "gameId": 3,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "gameId": 8,
+      "id": 3
     }
   ],
   "stats": [],

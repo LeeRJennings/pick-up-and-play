@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getAllGames, deleteGame } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
-import { addLike, getAllLikes } from "../../modules/LikesManager"
+import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 
 export const AllGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
@@ -25,7 +25,6 @@ export const AllGames = () => {
         .then(likes => {
             setLikes(likes)
         })
-        .then(setIsLoading(false))
     }
 
     const handleDeleteGame = (id) => {
@@ -33,29 +32,35 @@ export const AllGames = () => {
         .then(getGames())
     }
 
-    const doNothing = () => {
-        return undefined
-    }
-
     const handleGameLike = (gameId) => {
         const newLike = {
             userId: loggedInUser.id,
             gameId: gameId 
         }
-        const likeExists = likes.find(like => like.gameId === newLike.gameId && like.userId === newLike.userId)
-        if (likeExists) {
-            return undefined
-        } else { 
-            addLike(newLike) 
-            setIsLoading(true)
+        // TODO look at nutshell for making past events go to the bottom
+        setIsLoading(true)
+        addLike(newLike) 
+        .then(res => {
             getLikes()
-        }
+            setIsLoading(false)
+        })
+        
+    }
+
+    const handleDeleteLike = (likeId) => {
+        setIsLoading(true)
+        deleteLike(likeId)
+        .then(res => {
+            getLikes()
+            setIsLoading(false)
+        })
         
     }
 
     useEffect(() => {
         getGames()
         getLikes()
+        setIsLoading(false)
     }, [])
 
     return (
@@ -69,7 +74,9 @@ export const AllGames = () => {
                         loggedInUser={loggedInUser}
                         handleDeleteGame={handleDeleteGame}
                         handleGameLike={handleGameLike}
-                        isLoading={isLoading} />)}
+                        isLoading={isLoading}
+                        likes={likes}
+                        handleDeleteLike={handleDeleteLike} />)}
             </div>
         </>
     )
