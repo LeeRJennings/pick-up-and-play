@@ -42,6 +42,21 @@ export const updateGame = (editedGame) => {
 }
 
 export const getGamesByAreaId = (areaId) => {
-    return fetch(`${remoteURL}/games?areaId=${areaId}&_expand=user&_expand=area&_expand=skillLevel`)
+    return fetch(`${remoteURL}/games?areaId=${areaId}&_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
+    .then(response => response.json())
+}
+
+export const getGamesBySkillLevelId = (skillLevelId) => {
+    return fetch(`${remoteURL}/games?skillLevelId=${skillLevelId}&_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
+    .then(response => response.json())
+}
+
+export const getGamesByDate = (date) => {
+    return fetch(`${remoteURL}/games?date=${date}&_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
+    .then(response => response.json())
+}
+
+export const getGamesByUserIdAndAreaId = (userId, areaId) => {
+    return fetch(`${remoteURL}/games?userId=${userId}&areaId=${areaId}&_expand=user&_expand=area&_expand=skillLevel&_sort=date,time&_order=asc,asc`)
     .then(response => response.json())
 }
