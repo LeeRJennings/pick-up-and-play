@@ -27,6 +27,6 @@ export const deleteLike = (likeId) => {
 }
 
 export const getLikesByUserId = (userId) => {
-    return fetch(`${remoteURL}/likes?userId=${userId}&_expand=game`)
+    return fetch(`${remoteURL}/likes?userId=${userId}`)
     .then(response => response.json())
 }

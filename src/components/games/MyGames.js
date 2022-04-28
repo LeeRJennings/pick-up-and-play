@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react"
-import { getGamesByUserId, deleteGame } from "../../modules/GameManager"
+import { getGamesByUserId, deleteGame, getAllGames } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { useNavigate } from "react-router-dom"
 import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../modules/LikesManager"
+import "./GameViews.css"
 
 export const MyGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
-    const myLikedGamesArr = []
 
     const [games, setGames] = useState([])
     const [likes, setLikes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [myLikes, setMyLikes] = useState([])
     const [myLikedGames, setMyLikedGames] = useState([])
 
     const navigate = useNavigate()
@@ -28,21 +27,6 @@ export const MyGames = () => {
         .then(likes => {
             setLikes(likes)
         })
-    }
-
-    const getMyLikes = () => {
-        return getLikesByUserId(loggedInUser.id)
-        .then(myLikes => {
-            setMyLikes(myLikes)
-        })
-    }
-
-    const getLikedGames = () => {
-        for (const likeObj of myLikes) {
-            myLikedGamesArr.push(likeObj.game)
-        }
-        setMyLikedGames(myLikedGamesArr)
-        console.log(myLikedGames)
     }
 
     const handleDeleteGame = (id) => {
@@ -64,25 +48,36 @@ export const MyGames = () => {
         
     }
 
+    const getArrayToSetMyLikedGames = () => {
+        let usersLikedGames = []
+        getAllGames()
+        .then(everyGame => {
+            getLikesByUserId(loggedInUser.id)
+            .then(usersLikes => {
+                for (const like of usersLikes) {
+                  usersLikedGames.push(everyGame.find(game => game.id === like.gameId))
+                }
+                const likedGamesWithoutCreatedOnes = usersLikedGames.filter(game => game.userId !== loggedInUser.id)
+                setMyLikedGames(likedGamesWithoutCreatedOnes)
+            })
+        })
+    }
+
     const handleDeleteLike = (likeId) => {
         setIsLoading(true)
         deleteLike(likeId)
         .then(res => {
             getLikes()
+            getArrayToSetMyLikedGames()
             setIsLoading(false)
-        })
-        
+        })    
     }
 
     useEffect(() => {
         getGames()
         getLikes()
-        getMyLikes()
-        .then(res => {
-            getLikedGames()
-        })
+        getArrayToSetMyLikedGames()
         setIsLoading(false)
-        
     }, [])
 
     return (
@@ -103,16 +98,16 @@ export const MyGames = () => {
             </div>
             <h2>Liked Games</h2>
             <div className="gameCards">
-                {myLikedGames.map(game => 
-                    <GameCard
-                        key={game.id}
-                        game={game}
-                        loggedInUser={loggedInUser}
-                        handleDeleteGame={handleDeleteGame}
-                        handleGameLike={handleGameLike}
-                        isLoading={isLoading}
-                        likes={likes}
-                        handleDeleteLike={handleDeleteLike} />)}
+            {myLikedGames.map(game => 
+                <GameCard
+                    key={game.id}
+                    game={game}
+                    loggedInUser={loggedInUser}
+                    handleDeleteGame={handleDeleteGame}
+                    handleGameLike={handleGameLike}
+                    isLoading={isLoading}
+                    likes={likes}
+                    handleDeleteLike={handleDeleteLike} />)}
             </div>
         </>
     )

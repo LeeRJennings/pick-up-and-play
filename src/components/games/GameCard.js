@@ -25,7 +25,7 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
             <div className="cardContent">
                 <h3>{game.parkName}</h3>
                 <p className="gameAddress">
-                    {game.address}, {game.area.name} 
+                    {game.address}, {game.area?.name} 
                 </p>
                 <p className="gameDetails">
                     Hosted By: {game.user.name}

@@ -72,12 +72,10 @@ export const AllGames = () => {
         })
     }, [])
 
-    const doNothing = () => {
-        return undefined
-    }
-
     const handleAreaDropdown = (areaId) => {
-        getGamesByAreaId(areaId)
+        const gamesCopy = {...games}
+        gamesCopy[areaId.target.id] = areaId.target.value
+        getGamesByAreaId(areaId.target.value)
         .then(games => {
             setGames(games)
         })
@@ -86,12 +84,13 @@ export const AllGames = () => {
     return (
         <>
             <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <br/>
             <label htmlFor="areasDropdown">Filter by Area: </label>
             <select  
                 defaultValue="0"
                 name="areasDropdown" 
                 id="areaId" 
-                onChange={() => handleAreaDropdown(area.id)}
+                onChange={handleAreaDropdown}
                 className="form-control">
                     <option disabled hidden value="0">
                         Select an Area

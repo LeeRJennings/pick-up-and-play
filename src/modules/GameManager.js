@@ -42,10 +42,6 @@ export const updateGame = (editedGame) => {
 }
 
 export const getGamesByAreaId = (areaId) => {
-    return fetch(`${remoteURL}/games?areaId=${areaId}`)
+    return fetch(`${remoteURL}/games?areaId=${areaId}&_expand=user&_expand=area&_expand=skillLevel`)
     .then(response => response.json())
-}
-
-export const getGamesWithLikes = () => {
-    return fetch(`$`)
 }
