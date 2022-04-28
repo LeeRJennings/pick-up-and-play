@@ -84,7 +84,7 @@ export const EditGameForm = () => {
     return (
         <>
         <form className="gameForm">
-            <h2 className="gameForm__title">Add a New Game</h2>
+            <h2 className="gameForm__title">Edit Your Game</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="areaId">Area: </label>

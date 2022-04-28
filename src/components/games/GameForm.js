@@ -83,7 +83,7 @@ export const GameForm =() => {
                         id="areaId" 
                         onChange={handleControlledInputChange} 
                         required autoFocus 
-                        className="form-control" >
+                        className="form-control">
 						<option hidden disabled value="0">Select an Area</option>
 						{areas.map(area => (
 							<option key={area.id} value={area.id}>

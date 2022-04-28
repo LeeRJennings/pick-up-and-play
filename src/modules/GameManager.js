@@ -40,3 +40,12 @@ export const updateGame = (editedGame) => {
         body: JSON.stringify(editedGame)
     }).then(response => response.json())
 }
+
+export const getGamesByAreaId = (areaId) => {
+    return fetch(`${remoteURL}/games?areaId=${areaId}`)
+    .then(response => response.json())
+}
+
+export const getGamesWithLikes = () => {
+    return fetch(`$`)
+}

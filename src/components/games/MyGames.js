@@ -6,11 +6,13 @@ import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../module
 
 export const MyGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
+    const myLikedGamesArr = []
 
     const [games, setGames] = useState([])
     const [likes, setLikes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [myLikes, setMyLikes] = ([])
+    const [myLikes, setMyLikes] = useState([])
+    const [myLikedGames, setMyLikedGames] = useState([])
 
     const navigate = useNavigate()
 
@@ -35,6 +37,14 @@ export const MyGames = () => {
         })
     }
 
+    const getLikedGames = () => {
+        for (const likeObj of myLikes) {
+            myLikedGamesArr.push(likeObj.game)
+        }
+        setMyLikedGames(myLikedGamesArr)
+        console.log(myLikedGames)
+    }
+
     const handleDeleteGame = (id) => {
         deleteGame(id)
         .then(getGames())
@@ -45,7 +55,6 @@ export const MyGames = () => {
             userId: loggedInUser.id,
             gameId: gameId 
         }
-        // TODO look at nutshell for making past events go to the bottom
         setIsLoading(true)
         addLike(newLike) 
         .then(res => {
@@ -69,7 +78,11 @@ export const MyGames = () => {
         getGames()
         getLikes()
         getMyLikes()
+        .then(res => {
+            getLikedGames()
+        })
         setIsLoading(false)
+        
     }, [])
 
     return (
@@ -89,6 +102,18 @@ export const MyGames = () => {
                         handleDeleteLike={handleDeleteLike} />)}
             </div>
             <h2>Liked Games</h2>
+            <div className="gameCards">
+                {myLikedGames.map(game => 
+                    <GameCard
+                        key={game.id}
+                        game={game}
+                        loggedInUser={loggedInUser}
+                        handleDeleteGame={handleDeleteGame}
+                        handleGameLike={handleGameLike}
+                        isLoading={isLoading}
+                        likes={likes}
+                        handleDeleteLike={handleDeleteLike} />)}
+            </div>
         </>
     )
 }

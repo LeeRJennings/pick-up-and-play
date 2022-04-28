@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getAllGames, deleteGame } from "../../modules/GameManager"
+import { getAllGames, deleteGame, getGamesByAreaId } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
+import { getAllAreas } from "../../modules/AreasManager"
 
 export const AllGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
@@ -10,6 +11,7 @@ export const AllGames = () => {
     const [games, setGames] = useState([])
     const [likes, setLikes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [areas, setAreas] = useState([])
 
     const navigate = useNavigate()
 
@@ -63,9 +65,43 @@ export const AllGames = () => {
         setIsLoading(false)
     }, [])
 
+    useEffect(() => {
+        getAllAreas()
+        .then(areas => {
+            setAreas(areas)
+        })
+    }, [])
+
+    const doNothing = () => {
+        return undefined
+    }
+
+    const handleAreaDropdown = (areaId) => {
+        getGamesByAreaId(areaId)
+        .then(games => {
+            setGames(games)
+        })
+    }
+
     return (
         <>
             <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <label htmlFor="areasDropdown">Filter by Area: </label>
+            <select  
+                defaultValue="0"
+                name="areasDropdown" 
+                id="areaId" 
+                onChange={() => handleAreaDropdown(area.id)}
+                className="form-control">
+                    <option disabled hidden value="0">
+                        Select an Area
+                    </option>
+                    {areas.map(area => (
+                        <option key={area.id} value={area.id}>
+                            {area.name}
+                        </option>
+                    ))}
+            </select>
             <div className="gameCards">
                 {games.map(game => 
                     <GameCard
