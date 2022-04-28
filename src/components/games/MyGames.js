@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getGamesByUserId, deleteGame, getAllGames } from "../../modules/GameManager"
+import { getGamesByUserId, deleteGame, getAllGames, getGamesByUserIdAndAreaId } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { useNavigate } from "react-router-dom"
 import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../modules/LikesManager"
@@ -12,11 +12,12 @@ export const MyGames = () => {
     const [likes, setLikes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [myLikedGames, setMyLikedGames] = useState([])
+    const [userId, setUserId] = useState(loggedInUser.id)
 
     const navigate = useNavigate()
 
     const getGames = () => {
-        return getGamesByUserId(loggedInUser.id)
+        return getGamesByUserId(userId)
         .then(games => {
             setGames(games)
         })
@@ -52,12 +53,12 @@ export const MyGames = () => {
         let usersLikedGames = []
         getAllGames()
         .then(everyGame => {
-            getLikesByUserId(loggedInUser.id)
+            getLikesByUserId(userId)
             .then(usersLikes => {
                 for (const like of usersLikes) {
                   usersLikedGames.push(everyGame.find(game => game.id === like.gameId))
                 }
-                const likedGamesWithoutCreatedOnes = usersLikedGames.filter(game => game.userId !== loggedInUser.id)
+                const likedGamesWithoutCreatedOnes = usersLikedGames.filter(game => game.userId !== userId)
                 setMyLikedGames(likedGamesWithoutCreatedOnes)
             })
         })
@@ -83,9 +84,42 @@ export const MyGames = () => {
     return (
         <>
             <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
-            <h2>Created Games</h2>
-            <div className="gameCards">
-                {games.map(game => 
+            <br/>
+            {/* <label htmlFor="areasDropdown">Filter by Area: </label>
+            <select  
+                defaultValue="0"
+                name="areasDropdown" 
+                id="areaId" 
+                onChange={handleAreaDropdown}
+                className="form-control">
+                    <option disabled hidden value="0">
+                        Select an Area
+                    </option>
+                    {areas.map(area => (
+                        <option key={area.id} value={area.id}>
+                            {area.name}
+                        </option>
+                    ))}
+            </select> */}
+            {games.length ?
+                <><h2>Created Games</h2>
+                <div className="gameCards">
+                    {games.map(game => 
+                        <GameCard
+                            key={game.id}
+                            game={game}
+                            loggedInUser={loggedInUser}
+                            handleDeleteGame={handleDeleteGame}
+                            handleGameLike={handleGameLike}
+                            isLoading={isLoading}
+                            likes={likes}
+                            handleDeleteLike={handleDeleteLike} />)}
+                </div></>
+                : <>Whoops ...... You haven't created any games yet</>}
+            {myLikedGames.length ? 
+                <><h2>Liked Games</h2>
+                <div className="gameCards">
+                {myLikedGames.map(game => 
                     <GameCard
                         key={game.id}
                         game={game}
@@ -95,20 +129,8 @@ export const MyGames = () => {
                         isLoading={isLoading}
                         likes={likes}
                         handleDeleteLike={handleDeleteLike} />)}
-            </div>
-            <h2>Liked Games</h2>
-            <div className="gameCards">
-            {myLikedGames.map(game => 
-                <GameCard
-                    key={game.id}
-                    game={game}
-                    loggedInUser={loggedInUser}
-                    handleDeleteGame={handleDeleteGame}
-                    handleGameLike={handleGameLike}
-                    isLoading={isLoading}
-                    likes={likes}
-                    handleDeleteLike={handleDeleteLike} />)}
-            </div>
+                </div></>
+            : ""}
         </>
     )
 }
