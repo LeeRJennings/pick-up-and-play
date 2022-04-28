@@ -21,11 +21,11 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
     const likeExists = likes.find(like => like.gameId === game.id && like.userId === loggedInUser.id)
     
     return (
-        <div className="card">
+        <div className="card" id={`gameCard__${game.id}`}>
             <div className="cardContent">
                 <h3>{game.parkName}</h3>
                 <p className="gameAddress">
-                    {game.address}, {game.area.name} 
+                    {game.address}, {game.area?.name} 
                 </p>
                 <p className="gameDetails">
                     Hosted By: {game.user.name}
