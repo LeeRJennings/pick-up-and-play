@@ -82,7 +82,7 @@ export const AllGames = () => {
         getGamesByAreaId(areaId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("There are no games in this area right now")
+                window.alert("Sorry, there are no games in this area right now.")
             } else {
                 setGames(games)
             }
@@ -93,7 +93,7 @@ export const AllGames = () => {
         getGamesBySkillLevelId(skillLevelId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("There are no games at this skill level right now")
+                window.alert("Sorry, there are no games at this skill level right now.")
             } else {
                 setGames(games)
             }
@@ -104,7 +104,7 @@ export const AllGames = () => {
         getGamesByDate(date.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("There are no games on this date right now")
+                window.alert("Sorry, there are no games on this date right now.")
             } else {
                 setGames(games)
             }
@@ -118,8 +118,7 @@ export const AllGames = () => {
             <label htmlFor="areasDropdown">Filter by Area: </label>
             <select  
                 defaultValue="0"
-                name="areasDropdown" 
-                id="areaId" 
+                name="areasDropdown"  
                 onChange={handleAreaDropdown}
                 className="form-control">
                     <option disabled hidden value="0">
@@ -134,8 +133,7 @@ export const AllGames = () => {
             <label htmlFor="skillLevelsDropdown">Filter by Skill Level: </label>
             <select  
                 defaultValue="0"
-                name="skillLevelsDropdown" 
-                id="skillLevelId" 
+                name="skillLevelsDropdown"  
                 onChange={handleSkillLevelDropdown}
                 className="form-control">
                     <option disabled hidden value="0">
@@ -149,11 +147,11 @@ export const AllGames = () => {
             </select>
             <label htmlFor="date">Filter by Date: </label>
                     <input 
-                        type="date" 
-                        id="date"
+                        type="date"
                         name="date" 
                         onChange={handleDatePicker} 
-                        className="form-control" />
+                        className="form-control" 
+                    />
             <button type="button" onClick={() => getGames()}>See All Games</button>
             <div className="gameCards">
                 {games.map(game => 

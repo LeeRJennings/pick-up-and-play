@@ -63,7 +63,7 @@ export const Login = ({ setAuthUser }) => {
 						/>
 					</fieldset>
 					<fieldset>
-						<button type="submit">Sign in</button>
+						<button type="submit">🥏Ultimate!🥏</button>
 					</fieldset>
 				</form>
 			</section>

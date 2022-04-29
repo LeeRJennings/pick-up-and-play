@@ -14,7 +14,7 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
             setNumberOfLikes(howManyLikes)
         })
         return (
-            <>👍 x {numberOfLikes}</>
+            <>🥏 x {numberOfLikes}</>
         )
     }
 
@@ -25,7 +25,7 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
             <div className="cardContent">
                 <h3>{game.parkName}</h3>
                 <p className="gameAddress">
-                    {game.address}, {game.area?.name} 
+                    {game.address}, {game.area.name} 
                 </p>
                 <p className="gameDetails">
                     Hosted By: {game.user.name}
@@ -36,12 +36,12 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                     <br/>
                     Skill Level: {game.skillLevel.skillLevel}
                     <br/>
-                    {game.additionalInfo === "" ? "" : `Additional Info: ${game.additionalInfo}`}
+                    {game.additionalInfo === "" ? <></> : `Additional Info: ${game.additionalInfo}`}
                     <br/>
                     {likeExists
-                        ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>Dislike</button>
+                        ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>I can't play &#128542;</button>
                             {showLikes(game.id)}</> 
-                        :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>Like</button>
+                        :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>I'm playing &#128512;</button>
                             {showLikes(game.id)}</>}
                     <br/>
                     {game.userId === loggedInUser.id ? 
