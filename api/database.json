@@ -23,17 +23,6 @@
   ],
   "games": [
     {
-      "userId": 1,
-      "areaId": 2,
-      "parkName": "East Park",
-      "address": "123 address rd",
-      "date": "2022-04-26",
-      "time": "03:10",
-      "skillLevelId": 1,
-      "additionalInfo": "white & dark shirt required, dogs allowed at park, bathrooms nearby, drinking water nearby",
-      "id": 1
-    },
-    {
       "userId": 2,
       "areaId": 4,
       "parkName": "Cleveland Park",
@@ -43,17 +32,6 @@
       "skillLevelId": 3,
       "additionalInfo": "barefoot friendly, playground nearby, bathrooms nearby, drinking water nearby, all ages welcome",
       "id": 2
-    },
-    {
-      "userId": 1,
-      "areaId": 3,
-      "parkName": "Fair Park",
-      "address": "8422 Johnson Pike",
-      "date": "2022-04-28",
-      "time": "06:35",
-      "skillLevelId": 2,
-      "additionalInfo": "cleats required, white & dark shirt required, 18+",
-      "id": 3
     },
     {
       "userId": 3,
@@ -76,75 +54,18 @@
       "skillLevelId": 1,
       "additionalInfo": "",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "areaId": 1,
-      "parkName": "goan edit this game",
-      "address": "64 Edited blvd",
-      "date": "2022-04-29",
-      "time": "13:49",
-      "skillLevelId": 1,
-      "additionalInfo": "barefoot friendly, playground nearby, all ages welcome",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "areaId": 2,
-      "parkName": "Cleveland Park",
-      "address": "ccb nvn vbncvb",
-      "date": "2022-05-01",
-      "time": "14:04",
-      "skillLevelId": 1,
-      "additionalInfo": "bathrooms nearby, cleats required, white & dark shirt required",
-      "id": 8
     }
   ],
   "likes": [
-    {
-      "userId": 2,
-      "gameId": 1,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "gameId": 1,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "gameId": 3,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "gameId": 7,
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "gameId": 8,
-      "id": 8
-    },
     {
       "userId": 1,
       "gameId": 5,
       "id": 9
     },
     {
-      "userId": 4,
-      "gameId": 1,
-      "id": 10
-    },
-    {
-      "userId": 4,
-      "gameId": 3,
-      "id": 11
-    },
-    {
-      "userId": 4,
-      "gameId": 7,
-      "id": 12
+      "userId": 1,
+      "gameId": 2,
+      "id": 14
     }
   ],
   "stats": [],

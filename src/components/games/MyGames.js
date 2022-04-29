@@ -34,7 +34,7 @@ export const MyGames = () => {
 
     const handleDeleteGame = (id) => {
         deleteGame(id)
-        .then(getGames())
+        .then(getGames)
     }
 
     const handleGameLike = (gameId) => {
@@ -99,7 +99,6 @@ export const MyGames = () => {
             <select  
                 defaultValue="0"
                 name="usersDropdown" 
-                // id="areaId" 
                 onChange={handleUserDropdown}
                 className="form-control">
                     <option disabled hidden value="0">
