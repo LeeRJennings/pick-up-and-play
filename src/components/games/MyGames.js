@@ -99,7 +99,6 @@ export const MyGames = () => {
             <select  
                 defaultValue="0"
                 name="usersDropdown" 
-                // id="areaId" 
                 onChange={handleUserDropdown}
                 className="form-control">
                     <option disabled hidden value="0">

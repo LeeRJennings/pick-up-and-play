@@ -33,7 +33,7 @@ export const AllGames = () => {
 
     const handleDeleteGame = (id) => {
         deleteGame(id)
-        .then(getGames())
+        .then(getGames)
     }
 
     const handleGameLike = (gameId) => {
