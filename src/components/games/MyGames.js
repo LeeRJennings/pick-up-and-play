@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import { getGamesByUserId, deleteGame, getAllGames, getGamesByUserIdAndAreaId } from "../../modules/GameManager"
+import { getGamesByUserId, deleteGame, getAllGames } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { useNavigate } from "react-router-dom"
 import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../modules/LikesManager"
+import { getAllUsers } from "../../modules/UsersManager"
 import "./GameViews.css"
 
 export const MyGames = () => {
@@ -13,6 +14,7 @@ export const MyGames = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [myLikedGames, setMyLikedGames] = useState([])
     const [userId, setUserId] = useState(loggedInUser.id)
+    const [users, setUsers] = useState([])
 
     const navigate = useNavigate()
 
@@ -78,31 +80,39 @@ export const MyGames = () => {
         getGames()
         getLikes()
         getArrayToSetMyLikedGames()
+        getAllUsers()
+        .then(users => {
+            setUsers(users)
+        })
         setIsLoading(false)
-    }, [])
+    }, [userId])
+
+    const handleUserDropdown = (userId) => {
+        setUserId(userId.target.value)
+    } 
 
     return (
         <>
             <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
             <br/>
-            {/* <label htmlFor="areasDropdown">Filter by Area: </label>
+            <label htmlFor="usersDropdown">See someone else's games: </label>
             <select  
                 defaultValue="0"
-                name="areasDropdown" 
-                id="areaId" 
-                onChange={handleAreaDropdown}
+                name="usersDropdown" 
+                // id="areaId" 
+                onChange={handleUserDropdown}
                 className="form-control">
                     <option disabled hidden value="0">
-                        Select an Area
+                        Select a User
                     </option>
-                    {areas.map(area => (
-                        <option key={area.id} value={area.id}>
-                            {area.name}
+                    {users.map(user => (
+                        <option key={user.id} value={user.id}>
+                            {user.name}
                         </option>
                     ))}
-            </select> */}
+            </select>
             {games.length ?
-                <><h2>Created Games</h2>
+                <><h2 className="myGamesHeader">Created Games</h2>
                 <div className="gameCards">
                     {games.map(game => 
                         <GameCard
@@ -115,9 +125,11 @@ export const MyGames = () => {
                             likes={likes}
                             handleDeleteLike={handleDeleteLike} />)}
                 </div></>
-                : <>Whoops ...... You haven't created any games yet</>}
+                : userId === loggedInUser.id ? 
+                    <><br/><br/>Whoops ...... You haven't created any games yet.</>
+                    : <><br/><br/>Whoops ...... This user haven't created any games yet.</>}
             {myLikedGames.length ? 
-                <><h2>Liked Games</h2>
+                <><h2 className="myGamesHeader">Liked Games</h2>
                 <div className="gameCards">
                 {myLikedGames.map(game => 
                     <GameCard
