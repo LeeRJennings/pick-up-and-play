@@ -76,28 +76,6 @@
       "skillLevelId": 1,
       "additionalInfo": "",
       "id": 6
-    },
-    {
-      "userId": 1,
-      "areaId": 1,
-      "parkName": "goan edit this game",
-      "address": "64 Edited blvd",
-      "date": "2022-04-29",
-      "time": "13:49",
-      "skillLevelId": 1,
-      "additionalInfo": "barefoot friendly, playground nearby, all ages welcome",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "areaId": 2,
-      "parkName": "Cleveland Park",
-      "address": "ccb nvn vbncvb",
-      "date": "2022-05-01",
-      "time": "14:04",
-      "skillLevelId": 1,
-      "additionalInfo": "bathrooms nearby, cleats required, white & dark shirt required",
-      "id": 8
     }
   ],
   "likes": [
@@ -108,28 +86,8 @@
     },
     {
       "userId": 1,
-      "gameId": 1,
-      "id": 5
-    },
-    {
-      "userId": 1,
       "gameId": 3,
       "id": 6
-    },
-    {
-      "userId": 1,
-      "gameId": 7,
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "gameId": 8,
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "gameId": 5,
-      "id": 9
     },
     {
       "userId": 4,
@@ -142,9 +100,9 @@
       "id": 11
     },
     {
-      "userId": 4,
-      "gameId": 7,
-      "id": 12
+      "userId": 1,
+      "gameId": 6,
+      "id": 13
     }
   ],
   "stats": [],

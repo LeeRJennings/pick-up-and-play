@@ -1,0 +1,10 @@
+nav {
+    background-color: #7c8284;
+    width: 100%;
+    /* position: fixed */
+}
+
+.nav-items {
+    display: flex;
+    list-style: none;
+}
