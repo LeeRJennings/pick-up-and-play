@@ -5,19 +5,20 @@ import "./NavBar.css"
 export const NavBar = ({clearUser}) => {
     return (
         <nav>
-            <ul>
-                <div className="nav-items">
+            <div className="logo">
+                <img src="./images/PickUpAndPlay.png" alt="ultimate frisbee app logo"/>
+            </div>                
+            <ul className="navListItems">
+                <li>
+                    <Link to="/">All Games</Link>
+                </li>
+                <li>
+                    <Link to="/myGames">My Games</Link>
+                </li>
+                <div className="logout">
                     <li>
-                        <Link to="/">All Games</Link>
+                        <Link to="/" onClick={() => clearUser()}>Logout</Link>
                     </li>
-                    <li>
-                        <Link to="/myGames">My Games</Link>
-                    </li>
-                    <div className="logout">
-                        <li>
-                            <Link to="/" onClick={() => clearUser()}>Logout</Link>
-                        </li>
-                    </div>
                 </div>
             </ul>
         </nav>

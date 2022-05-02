@@ -1,10 +1,17 @@
 nav {
     background-color: #7c8284;
     width: 100%;
+    height: 100px;
     /* position: fixed */
+    display: flex;
 }
 
-.nav-items {
+.navListItems {
     display: flex;
     list-style: none;
+}
+
+img {
+    width: 100px;
+    height: auto;
 }
