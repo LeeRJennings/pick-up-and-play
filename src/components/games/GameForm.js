@@ -8,7 +8,6 @@ import "./GameForm.css"
 
 export const GameForm =() => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
-    const infoArray = []
 
     const [game, setGame] = useState({
         userId: loggedInUser.id,
@@ -18,7 +17,18 @@ export const GameForm =() => {
         date: "",
         time: "",
         skillLevelId: 0,
-        additionalInfo: ""
+        additionalInfo: {}
+    })
+    const [info, setInfo] = useState({
+        cleatsRequired: false,
+        whiteAndDarkShirt: false,
+        barefootFriendly: false,
+        dogsAllowed: false,
+        playgroundNearby: false,
+        bathroomsNearby: false,
+        drinkingWaterNearby: false,
+        allAges: false,
+        eighteenPlus: false
     })
     const [skillLevels, setSkillLevels] = useState([])
     const [areas, setAreas] = useState([])
@@ -31,7 +41,7 @@ export const GameForm =() => {
         let selectedVal = evt.target.value
         if (evt.target.id.includes("Id")) {
             selectedVal = parseInt(selectedVal)
-        }
+        } 
         newGame[evt.target.id] = selectedVal
         setGame(newGame)
     }
@@ -54,7 +64,7 @@ export const GameForm =() => {
             || game.zipCode === "" || game.date === "" || game.time === "" || game.skillLevelId === 0) {
             window.alert('All fields except "Additional Info" are required')
         } else {
-            game.additionalInfo = infoArray.join(", ")
+            game.additionalInfo = info
             setIsLoading(true)
             addGame(game)
             .then(() => navigate("/"))
@@ -62,13 +72,9 @@ export const GameForm =() => {
     }
 
     const handleCheckboxes = (e) => {
-        let val = e.target.value
-        if (infoArray.includes(val)) {
-            let valIndex = infoArray.indexOf(val)
-            infoArray.splice(valIndex, 1)
-        } else {
-            infoArray.push(val)
-        }    
+        const newInfo = {...info}
+        newInfo[e.target.id] = !newInfo[e.target.id]
+        setInfo(newInfo)
     }
 
     return (
@@ -167,40 +173,94 @@ export const GameForm =() => {
                 <div className="form-group checkboxes">
                     <label>Additional Info:</label>
                     <div>
-                        <input type="checkbox" value="cleats required" onChange={handleCheckboxes}/>
-                        <label>cleats required</label>
+                        <input 
+                            type="checkbox" 
+                            name="cleatsRequired" 
+                            id="cleatsRequired"
+                            checked={info.cleatsRequired} 
+                            value={info.cleatsRequired} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="cleatsRequired">cleats required</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="white & dark shirt required" onChange={handleCheckboxes}/>
-                        <label>white & dark shirt required</label>
+                        <input 
+                            type="checkbox" 
+                            name="whiteAndDarkShirt"
+                            id="whiteAndDarkShirt"
+                            checked={info.whiteAndDarkShirt} 
+                            value={info.whiteAndDarkShirt}
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="whiteAndDarkShirt">white & dark shirt required</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="barefoot friendly" onChange={handleCheckboxes}/>
-                        <label>barefoot friendly</label>
+                        <input 
+                            type="checkbox" 
+                            name="barefootFriendly"
+                            id="barefootFriendly"
+                            checked={info.barefootFriendly}
+                            value={info.barefootFriendly} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="barefootFriendly">barefoot friendly</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="dogs allowed at park" onChange={handleCheckboxes}/>
-                        <label>dogs allowed at park</label>
+                        <input 
+                            type="checkbox"
+                            name="dogsAllowed"
+                            id="dogsAllowed"
+                            checked={info.dogsAllowed}
+                            value={info.dogsAllowed} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="dogsAllowed">dogs allowed at park</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="playground nearby" onChange={handleCheckboxes}/>
-                        <label>playground nearby</label>
+                        <input 
+                            type="checkbox"
+                            name="playgroundNearby"
+                            id="playgroundNearby"
+                            checked={info.playgroundNearby} 
+                            value={info.playgroundNearby} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="playgroundNearby">playground nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="bathrooms nearby" onChange={handleCheckboxes}/>
-                        <label>bathrooms nearby</label>
+                        <input 
+                            type="checkbox"
+                            name="bathroomsNearby"
+                            id="bathroomsNearby"
+                            checked={info.bathroomsNearby} 
+                            value={info.bathroomsNearby} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="bathroomsNearby">bathrooms nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="drinking water nearby" onChange={handleCheckboxes}/>
-                        <label>drinking water nearby</label>
+                        <input 
+                            type="checkbox"
+                            name="drinkingWaterNearby"
+                            id="drinkingWaterNearby"
+                            checked={info.drinkingWaterNearby} 
+                            value={info.drinkingWaterNearby} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="drinkingWaterNearby">drinking water nearby</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="all ages welcome" onChange={handleCheckboxes}/>
-                        <label>all ages welcome</label>
+                        <input 
+                            type="checkbox"
+                            name="allAges"
+                            id="allAges"
+                            checked={info.allAges} 
+                            value={info.allAges}
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="allAges">all ages welcome</label>
                     </div>
                     <div>
-                        <input type="checkbox" value="18+" onChange={handleCheckboxes}/>
-                        <label>18+</label>
+                        <input 
+                            type="checkbox"
+                            name="eighteenPlus"
+                            id="eighteenPlus"
+                            checked={info.eighteenPlus} 
+                            value={info.eighteenPlus} 
+                            onChange={handleCheckboxes}/>
+                        <label htmlFor="eighteenPlus">18+</label>
                     </div>
                 </div>
             </fieldset>

@@ -24,85 +24,125 @@
   "games": [
     {
       "userId": 1,
-      "areaId": 2,
+      "areaId": 1,
       "parkName": "East Park",
       "address": "123 address rd",
-      "date": "2022-04-26",
-      "time": "03:10",
-      "skillLevelId": 1,
-      "additionalInfo": "white & dark shirt required, dogs allowed at park, bathrooms nearby, drinking water nearby",
+      "date": "2022-05-18",
+      "time": "00:56",
+      "skillLevelId": 2,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": false,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": false
+      },
       "id": 1
     },
     {
-      "userId": 2,
-      "areaId": 4,
-      "parkName": "Cleveland Park",
-      "address": "1004 N 7th St",
-      "date": "2022-05-01",
-      "time": "14:00",
-      "skillLevelId": 3,
-      "additionalInfo": "barefoot friendly, playground nearby, bathrooms nearby, drinking water nearby, all ages welcome",
+      "userId": 1,
+      "areaId": 1,
+      "parkName": "East Park",
+      "address": "123 address rd",
+      "date": "2022-05-17",
+      "time": "11:00",
+      "skillLevelId": 1,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": false,
+        "barefootFriendly": true,
+        "dogsAllowed": true,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": false
+      },
       "id": 2
     },
     {
       "userId": 1,
-      "areaId": 3,
-      "parkName": "Fair Park",
-      "address": "8422 Johnson Pike",
-      "date": "2022-04-28",
-      "time": "06:35",
-      "skillLevelId": 2,
-      "additionalInfo": "cleats required, white & dark shirt required, 18+",
+      "areaId": 2,
+      "parkName": "Cleveland Park",
+      "address": "1004 N 7th St",
+      "date": "2022-05-04",
+      "time": "17:30",
+      "skillLevelId": 1,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": true,
+        "allAges": false,
+        "eighteenPlus": true
+      },
       "id": 3
     },
     {
-      "userId": 3,
-      "areaId": 5,
-      "parkName": "Brentwood Baptist",
+      "userId": 1,
+      "areaId": 2,
+      "parkName": "Fair Park",
       "address": "ccb nvn vbncvb",
-      "date": "2022-04-30",
-      "time": "00:21",
-      "skillLevelId": 1,
-      "additionalInfo": "",
-      "id": 5
-    },
-    {
-      "userId": 3,
-      "areaId": 5,
-      "parkName": "Brentwood Baptist",
-      "address": "ccb nvn vbncvb",
-      "date": "2022-04-30",
-      "time": "23:22",
-      "skillLevelId": 1,
-      "additionalInfo": "",
-      "id": 6
-    }
-  ],
-  "likes": [
-    {
-      "userId": 2,
-      "gameId": 1,
+      "date": "2022-05-21",
+      "time": "14:21",
+      "skillLevelId": 2,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": true
+      },
       "id": 4
     },
     {
       "userId": 1,
-      "gameId": 3,
-      "id": 6
-    },
+      "areaId": 2,
+      "parkName": "Brentwood Baptist",
+      "address": "ccb nvn vbncvb",
+      "date": "2022-05-26",
+      "time": "14:34",
+      "skillLevelId": 3,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": false,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": true
+      },
+      "id": 5
+    }
+  ],
+  "likes": [
     {
-      "userId": 4,
-      "gameId": 1,
-      "id": 10
-    },
-    {
-      "userId": 4,
+      "userId": 1,
       "gameId": 3,
-      "id": 11
+      "id": 1
     },
     {
       "userId": 1,
-      "gameId": 6,
-      "id": 13
+      "gameId": 4,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "gameId": 5,
+      "id": 4
     }
   ],
   "stats": [],
