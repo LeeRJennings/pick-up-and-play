@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { dateFormatter } from "../../helpers/dateFormatter"
 import { timeFormatter } from "../../helpers/timeFormatter"
 import { getLikesByGameId } from "../../modules/LikesManager"
+import "./GameViews.css"
 
 export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, isLoading, likes, handleDeleteLike}) => {
     const [numberOfLikes, setNumberOfLikes] = useState(0)
@@ -28,17 +29,17 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                     {game.address}, {game.area.name} 
                 </p>
                 <div className="gameDetails">
-                    Hosted By: {game.user.name}
+                    <b>Date:</b> {dateFormatter(game.date)}
                     <br/>
-                    Date: {dateFormatter(game.date)}
+                    <b>Time:</b> {timeFormatter(game.time)}
                     <br/>
-                    Time: {timeFormatter(game.time)}
+                    <b>Hosted By:</b> {game.user.name}
                     <br/>
-                    Skill Level: {game.skillLevel.skillLevel}
+                    <b>Skill Level:</b> {game.skillLevel.skillLevel}
                     <br/>
                     {!game.additionalInfo.cleatsRequired && !game.additionalInfo.whiteAndDarkShirt && !game.additionalInfo.barefootFriendly && !game.additionalInfo.dogsAllowed && 
                      !game.additionalInfo.playgroundNearby && !game.additionalInfo.bathroomsNearby && !game.additionalInfo.drinkingWaterNearby && !game.additionalInfo.allAges && !game.additionalInfo.eighteenPlus ?  "" 
-                     : <>Additional Info:
+                     : <><b>Additional Info:</b>
                         <ul>
                             {game.additionalInfo.cleatsRequired ?
                                 <li>cleats required</li> : ""}
@@ -59,22 +60,27 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                             {game.additionalInfo.eighteenPlus ?
                                 <li>18+</li> : ""}
                         </ul></>}
-                    {likeExists
-                        ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>I can't play</button>
-                            {showLikes(game.id)}</> 
-                        :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>I'm playing</button>
-                            {showLikes(game.id)}</>}
-                    <br/>
-                    {game.userId === loggedInUser.id ? 
-                        <Link to={`/${game.id}/edit`}>
-                            <button type="button">Edit</button>
-                        </Link>
-                        : ""
-                    }
-                    {game.userId === loggedInUser.id ?
-                        <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
-                        : ""
-                    }
+                </div>
+                <div className="cardButtons">
+                    <div className="likeButton">
+                        {likeExists
+                            ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>I can't play</button>
+                                {showLikes(game.id)}</> 
+                            :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>I'm playing</button>
+                                {showLikes(game.id)}</>}
+                    </div>
+                    <div className="editAndDeleteButtons">
+                        {game.userId === loggedInUser.id ? 
+                            <Link to={`/${game.id}/edit`}>
+                                <button type="button">Edit</button>
+                            </Link>
+                            : ""
+                        }
+                        {game.userId === loggedInUser.id ?
+                            <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
+                            : ""
+                        }
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,88 @@
-.myGamesHeader {
-    text-decoration: underline;
+body {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0.25)), url(../../../public/images/grass3.jpg);
+    background-repeat: repeat;
 }
+
+/* ============== between the navbar and cards area ============== */
+#addGameButton {
+    margin: 110px 0 10px  5px;
+}
+
+.filterArea {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filterArea label {
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    text-shadow: 2px 2px black;
+}
+
+#filterBy {
+    margin-left: 5px;
+}
+
+.filterItem {
+    margin: 0 5px;
+}
+
+.myGamesHeader {
+    color: white;
+    text-shadow: 2px 3px black;
+    margin-left: 5px;
+    font-size: 30px;
+}
+/* ============== end between the navbar and cards area ============== */
+
+/* ============== cards ============== */
+.gameCards {
+    display: flex;
+    justify-content: space-around;  
+    flex-wrap: wrap;
+}
+
+.gameDetails {
+    margin-bottom: 10px;
+}
+
+.card {
+    border: #7c8284 solid 5px;
+    background-color: rgba(0,0,0,.65);
+    color: white;
+    padding: 0 5px;
+    margin: 7px 3px;
+    border-radius: 12px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.card h3 {
+    margin: 5px 0;
+}
+
+.card ul {
+    margin: 3px 5px;
+    padding-left: 25px;
+}
+
+.cardButtons {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: absolute;
+    bottom: 0;
+}
+
+.noGamesMessage {
+    color: white;
+    text-shadow: 2px 3px black;
+    margin-left: 5px;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* ============== end cards ============== */

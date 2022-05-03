@@ -2,3 +2,28 @@
     display:flex;
     flex-direction: column;
 }
+
+.gameForm {
+    border: #7c8284 solid 5px;
+    background-color: rgba(0,0,0,.65);
+    color: white;
+    padding: 0 5px;
+    margin: 7px 3px;
+    border-radius: 12px;
+    margin: 110px 5px 10px  5px;
+    width: fit-content;
+}
+
+.gameForm__title {
+    margin-left: 5px;
+}
+
+fieldset {
+    border: none;
+    margin-left: 5px;
+    padding-left: 0;
+}
+
+.gameFormButtons {
+   margin: 5px 
+}

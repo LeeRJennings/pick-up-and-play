@@ -82,7 +82,7 @@ export const EditGameForm = () => {
             <h2 className="gameForm__title">Edit Your Game</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="areaId">Area: </label>
+                    <label htmlFor="areaId"><b>Area:</b> </label>
                     <select
                         value={game.areaId}
                         name="areaId"
@@ -105,13 +105,12 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="parkName">Park Name: </label>
+                    <label htmlFor="parkName"><b>Park Name:</b> </label>
                     <input
                         type="text"
                         id="parkName"
                         onChange={handleFieldChange}
                         required
-                        autoFocus
                         className="form-control"
                         placeholder="Break Side Park"
                         value={game.parkName}
@@ -120,13 +119,12 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="address">Address: </label>
+                    <label htmlFor="address"><b>Address:</b> </label>
                     <input
                         type="text"
                         id="address"
                         onChange={handleFieldChange}
                         required
-                        autoFocus
                         className="form-control"
                         placeholder="123 Big Huck Ave"
                         value={game.address}
@@ -135,13 +133,12 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="date">Date: </label>
+                    <label htmlFor="date"><b>Date:</b> </label>
                     <input
                         type="date"
                         id="date"
                         onChange={handleFieldChange}
                         required
-                        autoFocus
                         className="form-control"
                         value={game.date}
                     />
@@ -149,13 +146,12 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="time">Time: </label>
+                    <label htmlFor="time"><b>Time:</b> </label>
                     <input
                         type="time"
                         id="time"
                         onChange={handleFieldChange}
                         required
-                        autoFocus
                         className="form-control"
                         value={game.time}
                     />
@@ -164,14 +160,13 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="skillLevelId">Skill Level: </label>
+                    <label htmlFor="skillLevelId"><b>Skill Level:</b> </label>
                     <select
                         value={game.skillLevelId}
                         name="skillLevelId"
                         id="skillLevelId"
                         onChange={handleFieldChange}
                         required
-                        autoFocus
                         className="form-control"
                     >
                         <option hidden disabled value="0">
@@ -187,7 +182,7 @@ export const EditGameForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group checkboxes">
-                    <label>Additional Info:</label>
+                    <label><b>Additional Info:</b></label>
                     <div>
                         <input 
                             type="checkbox" 
@@ -281,10 +276,10 @@ export const EditGameForm = () => {
                     </div>
                 </div>
             </fieldset>
-            <button type="button" disabled={isLoading} onClick={updateExistingGame}>
+            <button className="gameFormButtons" type="button" disabled={isLoading} onClick={updateExistingGame}>
                 Save Edits
             </button>
-            <button type="button" onClick={() => navigate("/")}>
+            <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>
                 Cancel
             </button>
         </form>

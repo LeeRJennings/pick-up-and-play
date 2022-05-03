@@ -2,16 +2,60 @@ nav {
     background-color: #7c8284;
     width: 100%;
     height: 100px;
-    /* position: fixed */
+    position: fixed;
     display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    top: 0;
+    z-index: 50;
 }
 
-.navListItems {
+/* ============== logo ============== */
+#logo {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#logo:hover {
+    transform: scale(.9)
+}
+
+#logo:active {
+    transform: scale(.8)
+}
+/* ============== end logo ============== */
+
+.navLink {
+    color: white;
+    font-weight: bolder;
+    font-size: 20px; 
+    text-shadow: 3px 3px #008037;
+    text-decoration: none;
+}
+
+.navList {
     display: flex;
     list-style: none;
+    margin-top: 38px;
 }
 
-img {
-    width: 100px;
-    height: auto;
+.navListItem {
+    margin-right: 12px;
+}
+
+.navListItem:hover {
+    transform: scale(.9)
+}
+
+.navListItem:active {
+    transform: scale(.8)
+}
+
+.notTheLogout {
+    display: flex;
+}
+
+.logout {
+    margin-right: 10px;
 }

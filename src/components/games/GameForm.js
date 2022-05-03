@@ -78,196 +78,196 @@ export const GameForm =() => {
     }
 
     return (
-        <form className="gameForm">
-            <h2 className="gameForm__title">Add a New Game</h2>
-            <fieldset>
-				<div className="form-group">
-					<label htmlFor="areaId">Area: </label>
-					<select 
-                        value={game.areaId} 
-                        name="areaId" 
-                        id="areaId" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control">
-						<option hidden disabled value="0">Select an Area</option>
-						{areas.map(area => (
-							<option key={area.id} value={area.id}>
-								{area.name}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="parkName">Park Name: </label>
-                    <input 
-                        type="text" 
-                        id="parkName" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="Break Side Park" 
-                        value={game.parkName} />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="address">Address: </label>
-                    <input 
-                        type="text" 
-                        id="address" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control" 
-                        placeholder="123 Big Huck Ave" 
-                        value={game.address} />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="date">Date: </label>
-                    <input 
-                        type="date" 
-                        id="date" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control"  
-                        value={game.date} />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="time">Time: </label>
-                    <input 
-                        type="time" 
-                        id="time" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus
-                        className="form-control"  
-                        value={game.time} />
-                    <small>  all times are in Central Time</small>
-                </div>
-            </fieldset>
-            <fieldset>
-				<div className="form-group">
-					<label htmlFor="skillLevelId">Skill Level: </label>
-					<select 
-                        value={game.skillLevelId} 
-                        name="skillLevelId" 
-                        id="skillLevelId" 
-                        onChange={handleControlledInputChange} 
-                        required autoFocus 
-                        className="form-control" >
-						<option hidden disabled value="0">Select a Skill Level</option>
-						{skillLevels.map(sl => (
-							<option key={sl.id} value={sl.id}>
-								{sl.skillLevel}
-							</option>
-						))}
-					</select>
-				</div>
-			</fieldset>
-            <fieldset>
-                <div className="form-group checkboxes">
-                    <label>Additional Info:</label>
-                    <div>
-                        <input 
-                            type="checkbox" 
-                            name="cleatsRequired" 
-                            id="cleatsRequired"
-                            checked={info.cleatsRequired} 
-                            value={info.cleatsRequired} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="cleatsRequired">cleats required</label>
+        <>
+            <form className="gameForm">
+                <h2 className="gameForm__title">Add a New Game</h2>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="areaId"><b>Area:</b> </label>
+                        <select 
+                            value={game.areaId} 
+                            name="areaId" 
+                            id="areaId" 
+                            onChange={handleControlledInputChange} 
+                            required autoFocus 
+                            className="form-control">
+                            <option hidden disabled value="0">Select an Area</option>
+                            {areas.map(area => (
+                                <option key={area.id} value={area.id}>
+                                    {area.name}
+                                </option>
+                            ))}
+                        </select>
                     </div>
-                    <div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="parkName"><b>Park Name:</b> </label>
                         <input 
-                            type="checkbox" 
-                            name="whiteAndDarkShirt"
-                            id="whiteAndDarkShirt"
-                            checked={info.whiteAndDarkShirt} 
-                            value={info.whiteAndDarkShirt}
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="whiteAndDarkShirt">white & dark shirt required</label>
+                            type="text" 
+                            id="parkName" 
+                            onChange={handleControlledInputChange} 
+                            required  
+                            className="form-control" 
+                            placeholder="Break Side Park" 
+                            value={game.parkName} />
                     </div>
-                    <div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="address"><b>Address:</b> </label>
                         <input 
-                            type="checkbox" 
-                            name="barefootFriendly"
-                            id="barefootFriendly"
-                            checked={info.barefootFriendly}
-                            value={info.barefootFriendly} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="barefootFriendly">barefoot friendly</label>
+                            type="text" 
+                            id="address" 
+                            onChange={handleControlledInputChange} 
+                            required 
+                            className="form-control" 
+                            placeholder="123 Big Huck Ave" 
+                            value={game.address} />
                     </div>
-                    <div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="date"><b>Date:</b> </label>
                         <input 
-                            type="checkbox"
-                            name="dogsAllowed"
-                            id="dogsAllowed"
-                            checked={info.dogsAllowed}
-                            value={info.dogsAllowed} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="dogsAllowed">dogs allowed at park</label>
+                            type="date" 
+                            id="date" 
+                            onChange={handleControlledInputChange} 
+                            required 
+                            className="form-control"  
+                            value={game.date} />
                     </div>
-                    <div>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="time"><b>Time:</b> </label>
                         <input 
-                            type="checkbox"
-                            name="playgroundNearby"
-                            id="playgroundNearby"
-                            checked={info.playgroundNearby} 
-                            value={info.playgroundNearby} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="playgroundNearby">playground nearby</label>
+                            type="time" 
+                            id="time" 
+                            onChange={handleControlledInputChange} 
+                            required 
+                            className="form-control"  
+                            value={game.time} />
+                        <small>  all times are in Central Time</small>
                     </div>
-                    <div>
-                        <input 
-                            type="checkbox"
-                            name="bathroomsNearby"
-                            id="bathroomsNearby"
-                            checked={info.bathroomsNearby} 
-                            value={info.bathroomsNearby} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="bathroomsNearby">bathrooms nearby</label>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="skillLevelId"><b>Skill Level:</b> </label>
+                        <select 
+                            value={game.skillLevelId} 
+                            name="skillLevelId" 
+                            id="skillLevelId" 
+                            onChange={handleControlledInputChange} 
+                            required  
+                            className="form-control" >
+                            <option hidden disabled value="0">Select a Skill Level</option>
+                            {skillLevels.map(sl => (
+                                <option key={sl.id} value={sl.id}>
+                                    {sl.skillLevel}
+                                </option>
+                            ))}
+                        </select>
                     </div>
-                    <div>
-                        <input 
-                            type="checkbox"
-                            name="drinkingWaterNearby"
-                            id="drinkingWaterNearby"
-                            checked={info.drinkingWaterNearby} 
-                            value={info.drinkingWaterNearby} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="drinkingWaterNearby">drinking water nearby</label>
+                </fieldset>
+                <fieldset>
+                    <div className="form-group checkboxes">
+                        <label><b>Additional Info:</b></label>
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="cleatsRequired" 
+                                id="cleatsRequired"
+                                checked={info.cleatsRequired} 
+                                value={info.cleatsRequired} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="cleatsRequired">cleats required</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="whiteAndDarkShirt"
+                                id="whiteAndDarkShirt"
+                                checked={info.whiteAndDarkShirt} 
+                                value={info.whiteAndDarkShirt}
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="whiteAndDarkShirt">white & dark shirt required</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox" 
+                                name="barefootFriendly"
+                                id="barefootFriendly"
+                                checked={info.barefootFriendly}
+                                value={info.barefootFriendly} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="barefootFriendly">barefoot friendly</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="dogsAllowed"
+                                id="dogsAllowed"
+                                checked={info.dogsAllowed}
+                                value={info.dogsAllowed} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="dogsAllowed">dogs allowed at park</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="playgroundNearby"
+                                id="playgroundNearby"
+                                checked={info.playgroundNearby} 
+                                value={info.playgroundNearby} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="playgroundNearby">playground nearby</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="bathroomsNearby"
+                                id="bathroomsNearby"
+                                checked={info.bathroomsNearby} 
+                                value={info.bathroomsNearby} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="bathroomsNearby">bathrooms nearby</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="drinkingWaterNearby"
+                                id="drinkingWaterNearby"
+                                checked={info.drinkingWaterNearby} 
+                                value={info.drinkingWaterNearby} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="drinkingWaterNearby">drinking water nearby</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="allAges"
+                                id="allAges"
+                                checked={info.allAges} 
+                                value={info.allAges}
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="allAges">all ages welcome</label>
+                        </div>
+                        <div>
+                            <input 
+                                type="checkbox"
+                                name="eighteenPlus"
+                                id="eighteenPlus"
+                                checked={info.eighteenPlus} 
+                                value={info.eighteenPlus} 
+                                onChange={handleCheckboxes}/>
+                            <label htmlFor="eighteenPlus">18+</label>
+                        </div>
                     </div>
-                    <div>
-                        <input 
-                            type="checkbox"
-                            name="allAges"
-                            id="allAges"
-                            checked={info.allAges} 
-                            value={info.allAges}
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="allAges">all ages welcome</label>
-                    </div>
-                    <div>
-                        <input 
-                            type="checkbox"
-                            name="eighteenPlus"
-                            id="eighteenPlus"
-                            checked={info.eighteenPlus} 
-                            value={info.eighteenPlus} 
-                            onChange={handleCheckboxes}/>
-                        <label htmlFor="eighteenPlus">18+</label>
-                    </div>
-                </div>
-            </fieldset>
-            <button type="button" disabled={isLoading} onClick={handleClickCreateGame}>Create Game</button>
-            <button type="button" onClick={() => navigate("/")}>
-                Cancel
-            </button>
-        </form>
+                </fieldset>
+                <button className="gameFormButtons" type="button" disabled={isLoading} onClick={handleClickCreateGame}>Create Game</button>
+                <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>Cancel</button>
+            </form>
+        </>
     )
 }

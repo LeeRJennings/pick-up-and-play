@@ -5,6 +5,7 @@ import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
+import "./GameViews.css"
 
 export const AllGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
@@ -41,7 +42,6 @@ export const AllGames = () => {
             userId: loggedInUser.id,
             gameId: gameId 
         }
-        // TODO look at nutshell for making past events go to the bottom
         setIsLoading(true)
         addLike(newLike) 
         .then(res => {
@@ -113,46 +113,57 @@ export const AllGames = () => {
 
     return (
         <>
-            <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <button id="addGameButton" type="button" onClick={() => {navigate("/create")}}>Add Game</button>
             <br/>
-            <label htmlFor="areasDropdown">Filter by Area: </label>
-            <select  
-                defaultValue="0"
-                name="areasDropdown"  
-                onChange={handleAreaDropdown}
-                className="form-control">
-                    <option disabled hidden value="0">
-                        Select an Area
-                    </option>
-                    {areas.map(area => (
-                        <option key={area.id} value={area.id}>
-                            {area.name}
-                        </option>
-                    ))}
-            </select>
-            <label htmlFor="skillLevelsDropdown">Filter by Skill Level: </label>
-            <select  
-                defaultValue="0"
-                name="skillLevelsDropdown"  
-                onChange={handleSkillLevelDropdown}
-                className="form-control">
-                    <option disabled hidden value="0">
-                        Select a Skill Level
-                    </option>
-                    {skillLevels.map(skillLevel => (
-                        <option key={skillLevel.id} value={skillLevel.id}>
-                            {skillLevel.skillLevel}
-                        </option>
-                    ))}
-            </select>
-            <label htmlFor="date">Filter by Date: </label>
+            <div className="filterArea">
+                <label id="filterBy">Filter by</label>
+                <div className="filterItem">
+                    <label htmlFor="areasDropdown">Area: </label>
+                    <select  
+                        defaultValue="0"
+                        name="areasDropdown"  
+                        onChange={handleAreaDropdown}
+                        className="form-control">
+                            <option disabled hidden value="0">
+                                Select an Area
+                            </option>
+                            {areas.map(area => (
+                                <option key={area.id} value={area.id}>
+                                    {area.name}
+                                </option>
+                            ))}
+                    </select>
+                </div>
+                <div className="filterItem">
+                    <label htmlFor="skillLevelsDropdown">Skill Level: </label>
+                    <select  
+                        defaultValue="0"
+                        name="skillLevelsDropdown"  
+                        onChange={handleSkillLevelDropdown}
+                        className="form-control">
+                            <option disabled hidden value="0">
+                                Select a Skill Level
+                            </option>
+                            {skillLevels.map(skillLevel => (
+                                <option key={skillLevel.id} value={skillLevel.id}>
+                                    {skillLevel.skillLevel}
+                                </option>
+                            ))}
+                    </select>
+                </div>
+                <div className="filterItem">
+                    <label htmlFor="date">Date: </label>
                     <input 
                         type="date"
                         name="date" 
                         onChange={handleDatePicker} 
                         className="form-control" 
                     />
-            <button type="button" onClick={() => getGames()}>See All Games</button>
+                </div>
+                <div className="filterItem">
+                    <button type="button" onClick={() => getGames()}>See All Games</button>
+                </div>
+            </div>
             <div className="gameCards">
                 {games.map(game => 
                     <GameCard
