@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css"
 
 export const Login = ({ setAuthUser }) => {
 	const [loginUser, setLoginUser] = useState({ email: "" });
@@ -65,10 +66,10 @@ export const Login = ({ setAuthUser }) => {
 					<fieldset>
 						<button type="submit">Login</button>
 					</fieldset>
+					<div className="link--register">
+						<Link className="registerLink" to="/register">Register for an account</Link>
+					</div>
 				</form>
-			</section>
-			<section className="link--register">
-				<Link to="/register">Register for an account</Link>
 			</section>
 		</main>
 	);

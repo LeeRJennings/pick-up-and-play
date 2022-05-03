@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Auth.css"
 
 export const Register = () => {
 	const [registerUser, setRegisterUser] = useState({
@@ -55,7 +56,7 @@ export const Register = () => {
 	};
 
 	return (
-		<main style={{ textAlign: "center" }}>
+		<main className="register" style={{ textAlign: "center" }}>
 			<dialog className="dialog dialog--password" open={conflictDialog}>
 				<div>Account with that email address already exists</div>
 				<button
@@ -68,7 +69,7 @@ export const Register = () => {
 
 			<form className="form--login" onSubmit={handleRegister}>
 				<h1 className="h3 mb-3 font-weight-normal">
-					Please Register for Pick Up & Play
+					Please register for Pick Up & Play
 				</h1>
 				<fieldset>
 					<label htmlFor="firstName"> First Name </label>

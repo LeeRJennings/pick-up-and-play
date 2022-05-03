@@ -93,24 +93,26 @@ export const MyGames = () => {
 
     return (
         <>
-            <button type="button" onClick={() => {navigate("/create")}}>Add Game</button>
-            <br/>
-            <label htmlFor="usersDropdown">See someone else's games: </label>
-            <select  
-                defaultValue="0"
-                name="usersDropdown" 
-                // id="areaId" 
-                onChange={handleUserDropdown}
-                className="form-control">
-                    <option disabled hidden value="0">
-                        Select a User
-                    </option>
-                    {users.map(user => (
-                        <option key={user.id} value={user.id}>
-                            {user.name}
-                        </option>
-                    ))}
-            </select>
+            <button id="addGameButton" type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <div className="filterArea">
+                <div className="filterItem">
+                    <label htmlFor="usersDropdown">See someone else's games: </label>
+                    <select  
+                        defaultValue="0"
+                        name="usersDropdown"
+                        onChange={handleUserDropdown}
+                        className="form-control">
+                            <option disabled hidden value="0">
+                                Select a User
+                            </option>
+                            {users.map(user => (
+                                <option key={user.id} value={user.id}>
+                                    {user.name}
+                                </option>
+                            ))}
+                    </select>
+                </div>
+            </div>
             {games.length ?
                 <><h2 className="myGamesHeader">Created Games</h2>
                 <div className="gameCards">
@@ -126,8 +128,8 @@ export const MyGames = () => {
                             handleDeleteLike={handleDeleteLike} />)}
                 </div></>
                 : userId === loggedInUser.id ? 
-                    <><br/><br/>Whoops ...... You haven't created any games yet.</>
-                    : <><br/><br/>Whoops ...... This user haven't created any games yet.</>}
+                    <div className="noGamesMessage"><br/><br/>Whoops ...... You haven't created any games yet.</div>
+                    : <div className="noGamesMessage"><br/><br/>Whoops ...... This user haven't created any games yet.</div>}
             {myLikedGames.length ? 
                 <><h2 className="myGamesHeader">Liked Games</h2>
                 <div className="gameCards">

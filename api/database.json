@@ -19,6 +19,11 @@
       "email": "cap@nss.com",
       "name": "Captain Sully",
       "id": 4
+    },
+    {
+      "email": "noelle@nss.com",
+      "name": "Noelle Reign",
+      "id": 5
     }
   ],
   "games": [
@@ -69,7 +74,7 @@
       "areaId": 2,
       "parkName": "Cleveland Park",
       "address": "1004 N 7th St",
-      "date": "2022-05-04",
+      "date": "2022-05-01",
       "time": "17:30",
       "skillLevelId": 1,
       "additionalInfo": {
@@ -126,6 +131,27 @@
         "eighteenPlus": true
       },
       "id": 5
+    },
+    {
+      "userId": 5,
+      "areaId": 2,
+      "parkName": "Cleveland Park",
+      "address": "123 address rd",
+      "date": "2022-05-20",
+      "time": "10:50",
+      "skillLevelId": 2,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": true,
+        "playgroundNearby": true,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": false
+      },
+      "id": 7
     }
   ],
   "likes": [
@@ -136,13 +162,13 @@
     },
     {
       "userId": 1,
-      "gameId": 4,
-      "id": 3
+      "gameId": 5,
+      "id": 4
     },
     {
       "userId": 1,
-      "gameId": 5,
-      "id": 4
+      "gameId": 7,
+      "id": 5
     }
   ],
   "stats": [],
