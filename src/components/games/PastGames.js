@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { deleteGame, getGamesByAreaId, getGamesBySkillLevelId, getGamesByDate, getAllPreviousGames } from "../../modules/GameManager"
+import { deleteGame, getAllPreviousGames, getPreviousGamesByAreaId, getPreviousGamesBySkillLevelId, getPreviousGamesByDate } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
 import "./GameViews.css"
 
-export const PreviousGames = () => {
+export const PastGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
 
     const [games, setGames] = useState([])
@@ -77,10 +77,10 @@ export const PreviousGames = () => {
     }, [])
 
     const handleAreaDropdown = (areaId) => {
-        getGamesByAreaId(areaId.target.value)
+        getPreviousGamesByAreaId(areaId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games in this area right now.")
+                window.alert("Sorry, there are no previous games in this area.")
             } else {
                 setGames(games)
             }
@@ -88,10 +88,10 @@ export const PreviousGames = () => {
     }
 
     const handleSkillLevelDropdown = (skillLevelId) => {
-        getGamesBySkillLevelId(skillLevelId.target.value)
+        getPreviousGamesBySkillLevelId(skillLevelId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games at this skill level right now.")
+                window.alert("Sorry, there are no previous games at this skill level.")
             } else {
                 setGames(games)
             }
@@ -99,10 +99,10 @@ export const PreviousGames = () => {
     }
 
     const handleDatePicker = (date) => {
-        getGamesByDate(date.target.value)
+        getPreviousGamesByDate(date.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games on this date right now.")
+                window.alert("Sorry, there are no previous games on this date.")
             } else {
                 setGames(games)
             }

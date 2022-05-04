@@ -47,8 +47,7 @@ export const MyGames = () => {
         .then(res => {
             getLikes()
             setIsLoading(false)
-        })
-        
+        })   
     }
 
     const getArrayToSetMyLikedGames = () => {

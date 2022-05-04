@@ -1,5 +1,6 @@
 nav {
     background-color: #7c8284;
+    /* background-color: #074e06; */
     width: 100%;
     height: 100px;
     position: fixed;
@@ -46,6 +47,7 @@ nav {
     display: flex;
     list-style: none;
     margin-top: 38px;
+    flex-wrap: wrap;
 }
 
 .navListItem {
