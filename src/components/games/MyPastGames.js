@@ -6,7 +6,7 @@ import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../module
 import { getAllUsers } from "../../modules/UsersManager"
 import "./GameViews.css"
 
-export const MyPreviousGames = () => {
+export const MyPastGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
 
     const [games, setGames] = useState([])
@@ -47,8 +47,7 @@ export const MyPreviousGames = () => {
         .then(res => {
             getLikes()
             setIsLoading(false)
-        })
-        
+        })   
     }
 
     const getArrayToSetMyLikedGames = () => {
@@ -131,8 +130,8 @@ export const MyPreviousGames = () => {
                             handleDeleteLike={handleDeleteLike} />)}
                 </div></>
                 : userId === loggedInUser.id ? 
-                    <div className="noGamesMessage"><br/><br/>Whoops ...... You haven't created any games yet.</div>
-                    : <div className="noGamesMessage"><br/><br/>Whoops ...... This user haven't created any games yet.</div>}
+                    <div className="noGamesMessage"><br/><br/>Whoops ...... You don't have any past games yet.</div>
+                    : <div className="noGamesMessage"><br/><br/>Whoops ...... This user doesn't have any past games yet.</div>}
             {myLikedGames.length ? 
                 <><h2 className="myGamesHeader">Liked Games</h2>
                 <div className="gameCards">

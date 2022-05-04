@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { deleteGame, getGamesByAreaId, getGamesBySkillLevelId, getGamesByDate, getAllUpcomingGames } from "../../modules/GameManager"
+import { deleteGame, getAllUpcomingGames, getUpcomingGamesByAreaId, getUpcomingGamesBySkillLevelId, getUpcomingGamesByDate } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
@@ -78,10 +78,10 @@ export const AllGames = () => {
     }, [])
 
     const handleAreaDropdown = (areaId) => {
-        getGamesByAreaId(areaId.target.value)
+        getUpcomingGamesByAreaId(areaId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games in this area right now.")
+                window.alert("Sorry, there are no upcoming games in this area right now.")
             } else {
                 setGames(games)
             }
@@ -89,10 +89,10 @@ export const AllGames = () => {
     }
 
     const handleSkillLevelDropdown = (skillLevelId) => {
-        getGamesBySkillLevelId(skillLevelId.target.value)
+        getUpcomingGamesBySkillLevelId(skillLevelId.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games at this skill level right now.")
+                window.alert("Sorry, there are no upcoming games at this skill level right now.")
             } else {
                 setGames(games)
             }
@@ -100,10 +100,10 @@ export const AllGames = () => {
     }
 
     const handleDatePicker = (date) => {
-        getGamesByDate(date.target.value)
+        getUpcomingGamesByDate(date.target.value)
         .then(games => {
             if (!games.length) {
-                window.alert("Sorry, there are no games on this date right now.")
+                window.alert("Sorry, there are no upcoming games on this date right now.")
             } else {
                 setGames(games)
             }
