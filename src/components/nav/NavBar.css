@@ -32,7 +32,15 @@ nav {
     font-size: 20px; 
     text-shadow: 3px 3px #008037;
     text-decoration: none;
+    /* border: 2px solid #008037;
+    border-radius: 10px;
+    background-color: #565d60;
+    padding: 2px; */
 }
+
+/* #activeView {
+    color: yellow;
+} */
 
 .navList {
     display: flex;
@@ -41,7 +49,7 @@ nav {
 }
 
 .navListItem {
-    margin-right: 12px;
+    margin-right: 20px;
 }
 
 .navListItem:hover {
