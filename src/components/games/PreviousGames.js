@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { deleteGame, getGamesByAreaId, getGamesBySkillLevelId, getGamesByDate, getAllUpcomingGames } from "../../modules/GameManager"
+import { deleteGame, getGamesByAreaId, getGamesBySkillLevelId, getGamesByDate, getAllPreviousGames } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
 import "./GameViews.css"
 
-export const AllGames = () => {
+export const PreviousGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
 
     const [games, setGames] = useState([])
@@ -18,8 +18,8 @@ export const AllGames = () => {
 
     const navigate = useNavigate()
 
-    const getUpcomingGames = () => {
-        return getAllUpcomingGames()
+    const getPreviousGames = () => {
+        return getAllPreviousGames()
         .then(games => {
             setGames(games)
         })
@@ -34,7 +34,7 @@ export const AllGames = () => {
 
     const handleDeleteGame = (id) => {
         deleteGame(id)
-        .then(getUpcomingGames)
+        .then(getPreviousGames)
     }
 
     const handleGameLike = (gameId) => {
@@ -47,8 +47,7 @@ export const AllGames = () => {
         .then(res => {
             getLikes()
             setIsLoading(false)
-        })
-        
+        })  
     }
 
     const handleDeleteLike = (likeId) => {
@@ -61,7 +60,7 @@ export const AllGames = () => {
     }
 
     useEffect(() => {
-        getUpcomingGames()
+        getPreviousGames()
         getLikes()
         setIsLoading(false)
     }, [])
@@ -160,7 +159,7 @@ export const AllGames = () => {
                     />
                 </div>
                 <div className="filterItem">
-                    <button type="button" onClick={() => getUpcomingGames()}>See All Games</button>
+                    <button type="button" onClick={() => getPreviousGames()}>See All Games</button>
                 </div>
             </div>
             <div className="gameCards">

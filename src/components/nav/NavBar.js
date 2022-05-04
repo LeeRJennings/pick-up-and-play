@@ -11,10 +11,16 @@ export const NavBar = ({clearUser}) => {
                 </div>                
                 <ul className="navList">
                     <li className="navListItem">
-                        <Link className="navLink" to="/">All Games</Link>
+                        <Link className="navLink" id="activeView" to="/">Upcoming Games</Link>
                     </li>
                     <li className="navListItem">
-                        <Link  className="navLink" to="/myGames">My Games</Link>
+                        <Link  className="navLink" to="/myGames">My Upcoming Games</Link>
+                    </li>
+                    <li className="navListItem">
+                        <Link  className="navLink" to="/pastGames">Past Games</Link>
+                    </li>
+                    <li className="navListItem">
+                        <Link  className="navLink" to="/myPastGames">My Past Games</Link>
                     </li>
                 </ul>
             </div>

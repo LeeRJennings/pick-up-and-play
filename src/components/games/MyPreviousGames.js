@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
-import { deleteGame, getUpcomingGamesByUserId, getAllUpcomingGames } from "../../modules/GameManager"
+import { deleteGame, getPreviousGamesByUserId, getAllPreviousGames } from "../../modules/GameManager"
 import { GameCard } from "./GameCard"
 import { useNavigate } from "react-router-dom"
 import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../modules/LikesManager"
 import { getAllUsers } from "../../modules/UsersManager"
 import "./GameViews.css"
 
-export const MyGames = () => {
+export const MyPreviousGames = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
 
     const [games, setGames] = useState([])
@@ -18,8 +18,8 @@ export const MyGames = () => {
 
     const navigate = useNavigate()
 
-    const getUpcomingGames = () => {
-        return getUpcomingGamesByUserId(userId)
+    const getPreviousGames = () => {
+        return getPreviousGamesByUserId(userId)
         .then(games => {
             setGames(games)
         })
@@ -34,7 +34,7 @@ export const MyGames = () => {
 
     const handleDeleteGame = (id) => {
         deleteGame(id)
-        .then(getUpcomingGames)
+        .then(getPreviousGames)
     }
 
     const handleGameLike = (gameId) => {
@@ -53,7 +53,7 @@ export const MyGames = () => {
 
     const getArrayToSetMyLikedGames = () => {
         let usersLikedGames = []
-        getAllUpcomingGames()
+        getAllPreviousGames()
         .then(everyGame => {
             getLikesByUserId(userId)
             .then(usersLikes => {
@@ -80,7 +80,7 @@ export const MyGames = () => {
     }
 
     useEffect(() => {
-        getUpcomingGames()
+        getPreviousGames()
         getLikes()
         getArrayToSetMyLikedGames()
         getAllUsers()

@@ -6,6 +6,8 @@ import { AllGames } from "./games/AllGames";
 import { EditGameForm } from "./games/EditGameForm";
 import { GameForm } from "./games/GameForm";
 import { MyGames } from "./games/MyGames";
+import { PreviousGames } from "./games/PreviousGames";
+import { MyPreviousGames } from "./games/MyPreviousGames";
 
 export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
     const PrivateOutlet = () => {
@@ -17,8 +19,10 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
             <Routes>
                 <Route path="/" element={<PrivateOutlet />} >
                     <Route path="/" element={<AllGames />} />
-                    <Route path="/create" element={<GameForm />} />
+                    <Route path="/pastGames" element={<PreviousGames />} />
                     <Route path="/myGames" element={<MyGames />} />
+                    <Route path="/myPastGames" element={<MyPreviousGames />} />
+                    <Route path="/create" element={<GameForm />} />
                     <Route path="/:gameId/edit" element={<EditGameForm />} />
                 </Route>
 
