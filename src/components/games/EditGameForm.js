@@ -277,10 +277,10 @@ export const EditGameForm = () => {
                 </div>
             </fieldset>
             <button className="gameFormButtons" type="button" disabled={isLoading} onClick={updateExistingGame}>
-                Save Edits
+                SAVE EDITS
             </button>
             <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>
-                Cancel
+                CANCEL
             </button>
         </form>
     </>
