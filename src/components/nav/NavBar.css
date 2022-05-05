@@ -1,6 +1,5 @@
 nav {
     background-color: #7c8284;
-    /* background-color: #074e06; */
     width: 100%;
     height: 100px;
     position: fixed;
@@ -33,15 +32,11 @@ nav {
     font-size: 20px; 
     text-shadow: 3px 3px #008037;
     text-decoration: none;
-    /* border: 2px solid #008037;
-    border-radius: 10px;
-    background-color: #565d60;
-    padding: 2px; */
 }
 
-/* #activeView {
+.active {
     color: yellow;
-} */
+}
 
 .navList {
     display: flex;

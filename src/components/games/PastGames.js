@@ -111,7 +111,7 @@ export const PastGames = () => {
 
     return (
         <>
-            <button id="addGameButton" type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <button className="addGameButton" type="button" onClick={() => {navigate("/create")}}>ADD GAME</button>
             <br/>
             <div className="filterArea">
                 <label id="filterBy">Filter by</label>
@@ -159,7 +159,7 @@ export const PastGames = () => {
                     />
                 </div>
                 <div className="filterItem">
-                    <button type="button" onClick={() => getPreviousGames()}>See All Games</button>
+                    <button className="seeAllGames" type="button" onClick={() => getPreviousGames()}>See All Games</button>
                 </div>
             </div>
             <div className="gameCards">

@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css"
 
+
 export const NavBar = ({clearUser}) => {
+    const location = useLocation()
+    
     return (
         <nav>
             <div className="notTheLogout">
@@ -11,16 +14,16 @@ export const NavBar = ({clearUser}) => {
                 </div>                
                 <ul className="navList">
                     <li className="navListItem">
-                        <Link className="navLink" id="activeView" to="/">Upcoming Games</Link>
+                        <Link className={`navLink ${location.pathname === "/" ? "active" : ""}`} to="/">Upcoming</Link>
                     </li>
                     <li className="navListItem">
-                        <Link  className="navLink" to="/myGames">My Upcoming Games</Link>
+                        <Link  className={`navLink ${location.pathname === "/myGames" ? "active" : ""}`} to="/myGames">My Games</Link>
                     </li>
                     <li className="navListItem">
-                        <Link  className="navLink" to="/pastGames">Past Games</Link>
+                        <Link  className={`navLink ${location.pathname === "/pastGames" ? "active" : ""}`} to="/pastGames">History</Link>
                     </li>
                     <li className="navListItem">
-                        <Link  className="navLink" to="/myPastGames">My Past Games</Link>
+                        <Link  className={`navLink ${location.pathname === "/myPastGames" ? "active" : ""}`} to="/myPastGames">My Past Games</Link>
                     </li>
                 </ul>
             </div>

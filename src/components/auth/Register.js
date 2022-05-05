@@ -112,7 +112,7 @@ export const Register = () => {
 					/>
 				</fieldset>
 				<fieldset>
-					<button type="submit"> Create Account </button>
+					<button className="loginButton" type="submit"> Create Account </button>
 				</fieldset>
 			</form>
 		</main>

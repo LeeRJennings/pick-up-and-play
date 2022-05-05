@@ -64,20 +64,20 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                 <div className="cardButtons">
                     <div className="likeButton">
                         {likeExists
-                            ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>I can't play</button>
+                            ?   <><button type="button" disabled={isLoading} onClick={() => handleDeleteLike(likeExists.id)}>CAN'T PLAY</button>
                                 {showLikes(game.id)}</> 
-                            :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>I'm playing</button>
+                            :   <><button type="button" disabled={isLoading} onClick={() => handleGameLike(game.id)}>PLAYING</button>
                                 {showLikes(game.id)}</>}
                     </div>
                     <div className="editAndDeleteButtons">
                         {game.userId === loggedInUser.id ? 
                             <Link to={`/${game.id}/edit`}>
-                                <button type="button">Edit</button>
+                                <button type="button">EDIT</button>
                             </Link>
                             : ""
                         }
                         {game.userId === loggedInUser.id ?
-                            <button type="button" onClick={() => handleDeleteGame(game.id)}>Delete</button>
+                            <button type="button" onClick={() => handleDeleteGame(game.id)}>DELETE</button>
                             : ""
                         }
                     </div>
