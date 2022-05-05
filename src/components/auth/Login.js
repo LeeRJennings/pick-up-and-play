@@ -64,7 +64,7 @@ export const Login = ({ setAuthUser }) => {
 						/>
 					</fieldset>
 					<fieldset>
-						<button type="submit">Login</button>
+						<button className="loginButton" type="submit">Login</button>
 					</fieldset>
 					<div className="link--register">
 						<Link className="registerLink" to="/register">Register for an account</Link>

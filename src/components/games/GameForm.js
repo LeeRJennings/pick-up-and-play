@@ -265,8 +265,8 @@ export const GameForm =() => {
                         </div>
                     </div>
                 </fieldset>
-                <button className="gameFormButtons" type="button" disabled={isLoading} onClick={handleClickCreateGame}>Create Game</button>
-                <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>Cancel</button>
+                <button className="gameFormButtons" type="button" disabled={isLoading} onClick={handleClickCreateGame}>CREATE GAME</button>
+                <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>CANCEL</button>
             </form>
         </>
     )

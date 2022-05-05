@@ -67,6 +67,7 @@ export const MyPastGames = () => {
             })
         })
     }
+    
 
     const handleDeleteLike = (likeId) => {
         setIsLoading(true)
@@ -90,12 +91,12 @@ export const MyPastGames = () => {
     }, [userId])
 
     const handleUserDropdown = (userId) => {
-        setUserId(userId.target.value)
+        setUserId(parseInt(userId.target.value))
     } 
 
     return (
         <>
-            <button id="addGameButton" type="button" onClick={() => {navigate("/create")}}>Add Game</button>
+            <button className="addGameButton" type="button" onClick={() => {navigate("/create")}}>ADD GAME</button>
             <div className="filterArea">
                 <div className="filterItem">
                     <label htmlFor="usersDropdown">See someone else's games: </label>

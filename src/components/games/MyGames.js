@@ -90,13 +90,13 @@ export const MyGames = () => {
     }, [userId])
 
     const handleUserDropdown = (userId) => {
-        setUserId(userId.target.value)
+        setUserId(parseInt(userId.target.value))
     } 
 
     return (
         <>
-            <button id="addGameButton" type="button" onClick={() => {navigate("/create")}}>Add Game</button>
-            <div className="filterArea">
+            <button className="addGameButton" type="button" onClick={() => {navigate("/create")}}>ADD GAME</button>
+            <div className="filterArea myGames">
                 <div className="filterItem">
                     <label htmlFor="usersDropdown">See someone else's games: </label>
                     <select  
