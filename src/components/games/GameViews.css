@@ -14,7 +14,6 @@ body {
 .filterArea {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
 }
 
 #filterBy {
@@ -43,11 +42,6 @@ select {
     cursor: pointer;
 }
 
-/* .myGames {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-} */
 /* ============== end between the navbar and cards area ============== */
 
 /* ============== cards ============== */

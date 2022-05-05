@@ -29,13 +29,9 @@ nav {
 .navLink {
     color: white;
     font-weight: bolder;
-    font-size: 20px; 
+    font-size: 17px; 
     text-shadow: 3px 3px #008037;
     text-decoration: none;
-}
-
-.active {
-    color: yellow;
 }
 
 .navList {
@@ -43,10 +39,6 @@ nav {
     list-style: none;
     margin-top: 38px;
     flex-wrap: wrap;
-}
-
-.navListItem {
-    margin-right: 20px;
 }
 
 .navListItem:hover {
@@ -62,5 +54,30 @@ nav {
 }
 
 .logout {
-    margin-right: 10px;
+    margin-right: 15px;
+}
+
+.navDropdowns {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0 0 8px;
+}
+
+.navDropdowns label {
+    color: white;
+    font-weight: bolder;
+    font-size: 17px; 
+    text-shadow: 3px 3px #008037;
+    text-decoration: none;
+}
+
+.navDropdowns select {
+    background-color: #7c8284;
+    border: 2px solid white
+}
+
+.navDropdowns option {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
 }

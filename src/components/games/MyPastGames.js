@@ -68,7 +68,6 @@ export const MyPastGames = () => {
         })
     }
     
-
     const handleDeleteLike = (likeId) => {
         setIsLoading(true)
         deleteLike(likeId)
