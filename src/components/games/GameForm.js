@@ -5,7 +5,6 @@ import { getAllSkillLevels } from "../../modules/SkillLevelManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import "./GameForm.css"
 
-
 export const GameForm =() => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
 
