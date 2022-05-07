@@ -80,7 +80,7 @@ select {
     margin: 5px 0;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     position: absolute;
     bottom: 0;
 }
