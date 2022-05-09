@@ -28,7 +28,7 @@
   ],
   "games": [
     {
-      "userId": 1,
+      "userId": 5,
       "areaId": 2,
       "parkName": "Cleveland Park",
       "address": "1004 N 7th St",
@@ -467,6 +467,27 @@
         "eighteenPlus": true
       },
       "id": 21
+    },
+    {
+      "userId": 5,
+      "areaId": 1,
+      "parkName": "Ted Rhodes Fields",
+      "address": "123 address rd",
+      "date": "2022-05-09",
+      "time": "16:00",
+      "skillLevelId": 1,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": false,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": true,
+        "allAges": false,
+        "eighteenPlus": false
+      },
+      "id": 22
     }
   ],
   "likes": [
@@ -749,9 +770,34 @@
       "userId": 3,
       "gameId": 13,
       "id": 56
+    },
+    {
+      "userId": 5,
+      "gameId": 22,
+      "id": 57
+    },
+    {
+      "userId": 5,
+      "gameId": 5,
+      "id": 58
+    },
+    {
+      "userId": 5,
+      "gameId": 14,
+      "id": 59
     }
   ],
-  "stats": [],
+  "stats": [
+    {
+      "userId": 5,
+      "gameId": 22,
+      "goals": 1,
+      "assists": 1,
+      "blocks": 1,
+      "turnovers": 1,
+      "id": 1
+    }
+  ],
   "skillLevels": [
     {
       "id": 1,

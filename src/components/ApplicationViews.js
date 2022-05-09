@@ -8,6 +8,8 @@ import { GameForm } from "./games/GameForm";
 import { MyGames } from "./games/MyGames";
 import { PastGames } from "./games/PastGames";
 import { MyPastGames } from "./games/MyPastGames";
+import { StatForm } from "../stats/StatForm";
+import { EditStatForm } from "../stats/EditStatForm";
 
 export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
     const PrivateOutlet = () => {
@@ -24,6 +26,8 @@ export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
                     <Route path="/myPastGames" element={<MyPastGames />} />
                     <Route path="/create" element={<GameForm />} />
                     <Route path="/:gameId/edit" element={<EditGameForm />} />
+                    <Route path="/:gameId/stats" element={<StatForm />} />
+                    <Route path="/:statId/editStats" element={<EditStatForm />} />
                 </Route>
 
                 <Route path="/login" element={<Login setAuthUser={setAuthUser}/>} />

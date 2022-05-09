@@ -4,6 +4,7 @@ import { GameCard } from "./GameCard"
 import { useNavigate } from "react-router-dom"
 import { getAllLikes, addLike, deleteLike, getLikesByUserId } from "../../modules/LikesManager"
 import { getAllUsers } from "../../modules/UsersManager"
+import { getAllStats } from "../../modules/StatsManager"
 import "./GameViews.css"
 
 export const MyGames = () => {
@@ -15,6 +16,7 @@ export const MyGames = () => {
     const [myLikedGames, setMyLikedGames] = useState([])
     const [userId, setUserId] = useState(loggedInUser.id)
     const [users, setUsers] = useState([])
+    const [stats, setStats] = useState([])
 
     const navigate = useNavigate()
 
@@ -29,6 +31,13 @@ export const MyGames = () => {
         return getAllLikes()
         .then(likes => {
             setLikes(likes)
+        })
+    }
+
+    const getStats = () => {
+        return getAllStats()
+        .then(stats => {
+            setStats(stats)
         })
     }
 
@@ -82,6 +91,7 @@ export const MyGames = () => {
         getUpcomingGames()
         getLikes()
         getArrayToSetMyLikedGames()
+        getStats()
         getAllUsers()
         .then(users => {
             setUsers(users)
@@ -127,7 +137,8 @@ export const MyGames = () => {
                             handleGameLike={handleGameLike}
                             isLoading={isLoading}
                             likes={likes}
-                            handleDeleteLike={handleDeleteLike} />)}
+                            handleDeleteLike={handleDeleteLike} 
+                            stats={stats} />)}
                 </div></>
                 : userId === loggedInUser.id ? 
                     <div className="noGamesMessage"><br/><br/>Whoops ...... You haven't created any games yet.</div>
@@ -144,7 +155,8 @@ export const MyGames = () => {
                         handleGameLike={handleGameLike}
                         isLoading={isLoading}
                         likes={likes}
-                        handleDeleteLike={handleDeleteLike} />)}
+                        handleDeleteLike={handleDeleteLike} 
+                        stats={stats} />)}
                 </div></>
             : ""}
         </>

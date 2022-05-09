@@ -132,3 +132,8 @@ button:active {
     padding: 3px 7px;
 }
 /* ============== end buttons ============== */
+
+dialog {
+    z-index: 51;
+    position: fixed;
+}

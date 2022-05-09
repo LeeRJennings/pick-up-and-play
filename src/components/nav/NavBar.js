@@ -14,7 +14,7 @@ export const NavBar = ({clearUser}) => {
         <nav>
             <div className="notTheLogout">
                 <div className="logo">
-                    <img id="logo" src="./images/PickUpAndPlay.png" alt="ultimate frisbee app logo" onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}/>
+                    <img id="logo" src="/images/PickUpAndPlay.png" alt="ultimate frisbee app logo" onClick={() => window.scrollTo({top: 0, left: 0, behavior: "smooth"})}/>
                 </div>
                 <div className="navDropdowns">
                     <label>Upcoming:</label>

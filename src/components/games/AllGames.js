@@ -5,6 +5,7 @@ import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
+import { getAllStats } from "../../modules/StatsManager"
 import "./GameViews.css"
 
 export const AllGames = () => {
@@ -15,6 +16,7 @@ export const AllGames = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [areas, setAreas] = useState([])
     const [skillLevels, setSkillLevels] = useState([])
+    const [stats, setStats] = useState([])
 
     const navigate = useNavigate()
 
@@ -32,6 +34,13 @@ export const AllGames = () => {
         })
     }
 
+    const getStats = () => {
+        return getAllStats()
+        .then(stats => {
+            setStats(stats)
+        })
+    }
+    
     const handleDeleteGame = (id) => {
         deleteGame(id)
         .then(getUpcomingGames)
@@ -47,8 +56,7 @@ export const AllGames = () => {
         .then(res => {
             getLikes()
             setIsLoading(false)
-        })
-        
+        }) 
     }
 
     const handleDeleteLike = (likeId) => {
@@ -63,6 +71,7 @@ export const AllGames = () => {
     useEffect(() => {
         getUpcomingGames()
         getLikes()
+        getStats()
         setIsLoading(false)
     }, [])
 
@@ -172,7 +181,8 @@ export const AllGames = () => {
                         handleGameLike={handleGameLike}
                         isLoading={isLoading}
                         likes={likes}
-                        handleDeleteLike={handleDeleteLike} />)}
+                        handleDeleteLike={handleDeleteLike} 
+                        stats={stats} />)}
             </div>
         </>
     )
