@@ -5,6 +5,7 @@ import { GameCard } from "./GameCard"
 import { addLike, deleteLike, getAllLikes } from "../../modules/LikesManager"
 import { getAllAreas } from "../../modules/AreasManager"
 import { getAllSkillLevels } from "../../modules/SkillLevelManager"
+import { getAllStats } from "../../modules/StatsManager"
 import "./GameViews.css"
 
 export const PastGames = () => {
@@ -15,6 +16,7 @@ export const PastGames = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [areas, setAreas] = useState([])
     const [skillLevels, setSkillLevels] = useState([])
+    const [stats, setStats] = useState([])
 
     const navigate = useNavigate()
 
@@ -29,6 +31,13 @@ export const PastGames = () => {
         return getAllLikes()
         .then(likes => {
             setLikes(likes)
+        })
+    }
+
+    const getStats = () => {
+        return getAllStats()
+        .then(stats => {
+            setStats(stats)
         })
     }
 
@@ -62,6 +71,7 @@ export const PastGames = () => {
     useEffect(() => {
         getPreviousGames()
         getLikes()
+        getStats()
         setIsLoading(false)
     }, [])
 
@@ -172,7 +182,8 @@ export const PastGames = () => {
                         handleGameLike={handleGameLike}
                         isLoading={isLoading}
                         likes={likes}
-                        handleDeleteLike={handleDeleteLike} />)}
+                        handleDeleteLike={handleDeleteLike}
+                        stats={stats} />)}
             </div>
         </>
     )
