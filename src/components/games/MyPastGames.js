@@ -138,7 +138,8 @@ export const MyPastGames = () => {
                             isLoading={isLoading}
                             likes={likes}
                             handleDeleteLike={handleDeleteLike} 
-                            stats={stats} />)}
+                            stats={stats}
+                            getStats={getStats} />)}
                 </div></>
                 : userId === loggedInUser.id ? 
                     <div className="noGamesMessage"><br/><br/>Whoops ...... You don't have any past games yet.</div>
@@ -156,7 +157,8 @@ export const MyPastGames = () => {
                         isLoading={isLoading}
                         likes={likes}
                         handleDeleteLike={handleDeleteLike} 
-                        stats={stats} />)}
+                        stats={stats}
+                        getStats={getStats} />)}
                 </div></>
             : ""}
         </>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { dateFormatter } from "../../helpers/dateFormatter"
 import { timeFormatter } from "../../helpers/timeFormatter"
@@ -7,13 +7,13 @@ import { getStatsByGameIdAndUserId, deleteStats } from "../../modules/StatsManag
 import { upcomingDateFormatter } from "../../helpers/dateFormatter"
 import "./GameViews.css"
 
-export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, isLoading, likes, handleDeleteLike, stats}) => {
+export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, isLoading, likes, handleDeleteLike, stats, getStats}) => {
     const todaysDate = upcomingDateFormatter(new Date())
     
     const [numberOfLikes, setNumberOfLikes] = useState(0)
     const [dialogVisible, setDialogVisible] = useState(false)
     const [gameStats, setGameStats] = useState({})
-
+    
     const handleClickSeeStats = () => {
         getStatsByGameIdAndUserId(game.id, loggedInUser.id)
         .then(stats => {
@@ -24,9 +24,10 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
 
     const handleDeleteStats = (statsId) => {
         deleteStats(statsId)
-        .then(res => {
-            setDialogVisible(false)
+        .then(() => {
+            getStats()
         })
+        .then(setDialogVisible(false))
     }
 
     const showLikes = (gameId) => {
@@ -56,12 +57,17 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
             <b>Blocks:</b> {gameStats[0]?.blocks}
             <br/>
             <b>Turnovers:</b> {gameStats[0]?.turnovers}
-            <br/>
-            <Link to={`/${gameStats[0]?.id}/editStats`}>
-                <button type="button">EDIT</button>
-            </Link>
-            <button type="button" onClick={() => handleDeleteStats(gameStats[0]?.id)}>DELETE</button>
-            <button type="button" onClick={() => setDialogVisible(false)}>CLOSE</button>
+            <div className="dialogButtons">
+                <div className="dialogButtonLeft">
+                    <Link to={`/${gameStats[0]?.id}/editStats`}>
+                        <button type="button">EDIT</button>
+                    </Link>
+                    <button type="button" onClick={() => handleDeleteStats(gameStats[0]?.id)}>DELETE</button>
+                </div>
+                <div className="dialogButtonRight">
+                    <button type="button" onClick={() => setDialogVisible(false)}>CLOSE</button>
+                </div>
+            </div>
         </dialog>
 
         <div className="card" id={`gameCard__${game.id}`}>

@@ -136,4 +136,10 @@ button:active {
 dialog {
     z-index: 51;
     position: fixed;
+    top: 110px
+}
+
+.dialogButtons {
+    display: flex;
+    justify-content: space-between;
 }
