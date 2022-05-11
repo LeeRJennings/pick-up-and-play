@@ -785,6 +785,11 @@
       "userId": 5,
       "gameId": 14,
       "id": 59
+    },
+    {
+      "userId": 5,
+      "gameId": 6,
+      "id": 60
     }
   ],
   "stats": [
@@ -796,6 +801,33 @@
       "blocks": 1,
       "turnovers": 1,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "gameId": 4,
+      "goals": 1,
+      "assists": 1,
+      "blocks": 1,
+      "turnovers": 1,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "gameId": 3,
+      "goals": 1,
+      "assists": 1,
+      "blocks": 1,
+      "turnovers": 0,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "gameId": 1,
+      "goals": 0,
+      "assists": 0,
+      "blocks": 0,
+      "turnovers": 0,
+      "id": 5
     }
   ],
   "skillLevels": [

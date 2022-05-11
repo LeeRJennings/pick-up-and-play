@@ -52,7 +52,7 @@ export const EditGameForm = () => {
             id: game.id
         }
         updateGame(editedGame)
-        .then(() => navigate("/"))
+        .then(() => navigate(-1))
     }
 
     useEffect(() => {
@@ -279,7 +279,7 @@ export const EditGameForm = () => {
             <button className="gameFormButtons" type="button" disabled={isLoading} onClick={updateExistingGame}>
                 SAVE EDITS
             </button>
-            <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>
+            <button className="gameFormButtons" type="button" onClick={() => navigate(-1)}>
                 CANCEL
             </button>
         </form>

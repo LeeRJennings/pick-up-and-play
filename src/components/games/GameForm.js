@@ -66,7 +66,7 @@ export const GameForm =() => {
             game.additionalInfo = info
             setIsLoading(true)
             addGame(game)
-            .then(() => navigate("/"))
+            .then(() => navigate(-1))
         }
     }
 
@@ -265,7 +265,7 @@ export const GameForm =() => {
                     </div>
                 </fieldset>
                 <button className="gameFormButtons" type="button" disabled={isLoading} onClick={handleClickCreateGame}>CREATE GAME</button>
-                <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>CANCEL</button>
+                <button className="gameFormButtons" type="button" onClick={() => navigate(-1)}>CANCEL</button>
             </form>
         </>
     )

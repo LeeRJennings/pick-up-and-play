@@ -182,7 +182,8 @@ export const AllGames = () => {
                         isLoading={isLoading}
                         likes={likes}
                         handleDeleteLike={handleDeleteLike} 
-                        stats={stats} />)}
+                        stats={stats}
+                        getStats={getStats} />)}
             </div>
         </>
     )

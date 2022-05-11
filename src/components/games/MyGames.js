@@ -138,7 +138,8 @@ export const MyGames = () => {
                             isLoading={isLoading}
                             likes={likes}
                             handleDeleteLike={handleDeleteLike} 
-                            stats={stats} />)}
+                            stats={stats}
+                            getStats={getStats} />)}
                 </div></>
                 : userId === loggedInUser.id ? 
                     <div className="noGamesMessage"><br/><br/>Whoops ...... You haven't created any games yet.</div>
@@ -146,17 +147,18 @@ export const MyGames = () => {
             {myLikedGames.length ? 
                 <><h2 className="myGamesHeader">Liked Games</h2>
                 <div className="gameCards">
-                {myLikedGames.map(game => 
-                    <GameCard
-                        key={game.id}
-                        game={game}
-                        loggedInUser={loggedInUser}
-                        handleDeleteGame={handleDeleteGame}
-                        handleGameLike={handleGameLike}
-                        isLoading={isLoading}
-                        likes={likes}
-                        handleDeleteLike={handleDeleteLike} 
-                        stats={stats} />)}
+                    {myLikedGames.map(game => 
+                        <GameCard
+                            key={game.id}
+                            game={game}
+                            loggedInUser={loggedInUser}
+                            handleDeleteGame={handleDeleteGame}
+                            handleGameLike={handleGameLike}
+                            isLoading={isLoading}
+                            likes={likes}
+                            handleDeleteLike={handleDeleteLike} 
+                            stats={stats}
+                            getStats={getStats} />)}
                 </div></>
             : ""}
         </>

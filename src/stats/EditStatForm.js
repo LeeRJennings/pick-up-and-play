@@ -35,7 +35,7 @@ export const EditStatForm = () => {
                 turnovers: parseInt(stats.turnovers)
             }
             updateStats(newStats)
-            .then(() => navigate("/"))
+            .then(() => navigate(-1))
         }
     }
 
@@ -108,7 +108,7 @@ export const EditStatForm = () => {
                 </div>
             </fieldset>
             <button className="gameFormButtons" type="button" disabled={isLoading} onClick={handleClickSaveStats}>SAVE STATS</button>
-            <button className="gameFormButtons" type="button" onClick={() => navigate("/")}>CANCEL</button>
+            <button className="gameFormButtons" type="button" onClick={() => navigate(-1)}>CANCEL</button>
         </form>
         </>
     )
