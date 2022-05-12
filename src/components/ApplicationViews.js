@@ -8,8 +8,8 @@ import { GameForm } from "./games/GameForm";
 import { MyGames } from "./games/MyGames";
 import { PastGames } from "./games/PastGames";
 import { MyPastGames } from "./games/MyPastGames";
-import { StatForm } from "../stats/StatForm";
-import { EditStatForm } from "../stats/EditStatForm";
+import { StatForm } from "./stats/StatForm";
+import { EditStatForm } from "./stats/EditStatForm";
 
 export const ApplicationViews = ({ isAuthenticated, setAuthUser }) => {
     const PrivateOutlet = () => {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateStats, getStatsById } from "../modules/StatsManager";
-import { getGameById } from "../modules/GameManager";
-import { dateFormatter } from "../helpers/dateFormatter";
+import { updateStats, getStatsById } from "../../modules/StatsManager";
+import { getGameById } from "../../modules/GameManager";
+import { dateFormatter } from "../../helpers/dateFormatter";
 
 export const EditStatForm = () => {
     const {statId} = useParams()
