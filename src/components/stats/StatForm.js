@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { addStats } from "../modules/StatsManager";
-import { getGameById } from "../modules/GameManager";
-import { dateFormatter } from "../helpers/dateFormatter";
+import { addStats } from "../../modules/StatsManager";
+import { getGameById } from "../../modules/GameManager";
+import { dateFormatter } from "../../helpers/dateFormatter";
 
 export const StatForm = () => {
     const loggedInUser = JSON.parse(sessionStorage.puap_user)
