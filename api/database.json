@@ -508,11 +508,6 @@
     },
     {
       "userId": 1,
-      "gameId": 4,
-      "id": 4
-    },
-    {
-      "userId": 1,
       "gameId": 5,
       "id": 5
     },
@@ -738,11 +733,6 @@
     },
     {
       "userId": 1,
-      "gameId": 18,
-      "id": 50
-    },
-    {
-      "userId": 1,
       "gameId": 19,
       "id": 51
     },
@@ -790,6 +780,11 @@
       "userId": 5,
       "gameId": 6,
       "id": 60
+    },
+    {
+      "userId": 1,
+      "gameId": 4,
+      "id": 61
     }
   ],
   "stats": [
