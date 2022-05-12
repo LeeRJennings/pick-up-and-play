@@ -27,3 +27,7 @@ fieldset {
 .gameFormButtons {
    margin: 5px 
 }
+
+.statInput {
+    width: 20px;
+}

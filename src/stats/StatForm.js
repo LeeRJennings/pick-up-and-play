@@ -65,8 +65,8 @@ export const StatForm = () => {
                         type="text" 
                         id="goals" 
                         onChange={handleControlledInputChange} 
-                        required  
-                        className="form-control" 
+                        required
+                        className="form-control, statInput" 
                         value={stats.goals} />
                 </div>
             </fieldset>
@@ -78,7 +78,7 @@ export const StatForm = () => {
                         id="assists" 
                         onChange={handleControlledInputChange} 
                         required  
-                        className="form-control"  
+                        className="form-control, statInput" 
                         value={stats.assists} />
                 </div>
             </fieldset>
@@ -90,7 +90,7 @@ export const StatForm = () => {
                         id="blocks" 
                         onChange={handleControlledInputChange} 
                         required  
-                        className="form-control"  
+                        className="form-control, statInput" 
                         value={stats.blocks} />
                 </div>
             </fieldset>
@@ -102,7 +102,7 @@ export const StatForm = () => {
                         id="turnovers" 
                         onChange={handleControlledInputChange} 
                         required  
-                        className="form-control"  
+                        className="form-control, statInput" 
                         value={stats.turnovers} />
                 </div>
             </fieldset>
