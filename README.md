@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+![Pick Up & Play logo](/public/images/PickUpAndPlay.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pick Up & Play
 
-## Available Scripts
+Pick Up & Play is a web app for Ultimate Frisbee enthusiasts in the greater Nashville area. The Nashvile Ultimate community currently uses 3 to 4 threads in the app GroupMe to plan and coordinate pick-up games. It can become confusing navigating through multiple threads and on-going conversations to find a game in your area, or on a specific date. Pick Up & Play provides users with a simple way to create and see any upcoming games, filter those games by different criteria, and even record their stats for previous games.
 
-In the project directory, you can run:
+## Technologies
+- HTML/CSS
+- Javascript
+- React
+- JSON server
+- ERD with drawSQL
+- Canva
+- Postman/Thunder Client
+- Git/GitHub
 
-### `npm start`
+## Run Locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+  git clone https://github.com/LeeRJennings/pick-up-and-play
+```
 
-### `npm test`
+Go to the API directory
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+  cd pick-up-and-play/api
+```
+Host the API
 
-### `npm run build`
+```bash
+  json-server -p 1968 -w database.json
+```
+Go to the project directory
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  cd ..
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  npm install
+```
 
-### `npm run eject`
+Host the project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Navigating Pick Up & Play
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Upon serving to correct hosts through your browser, you will be prompted to sign in or register as a new user. You may create a new account or sign in using an already existing user account. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+An already existing user account is `lee@nss.com`.
 
-## Learn More
+Once logged in you will be navigated to the main view which shows all games that are on today's date or upcoming. From this view you can press the "PLAYING" button on each game to indicate that you are planning on attending that game. Once pressed the player count for that game will update and the button will be replaced with a "CAN'T PLAY" button incase you can no longer attend that game. You can also filter the games by either area, skill level, or date using the dropdowns or date picker at the top of the page. Pressing the "SEE ALL GAMES" button will reset the view to show all upcoming games again. Provided that you have created a game, you will be presented with buttons to both edit or delete existing games.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Using the "Upcoming" and "Past" dropdown menus in the nav bar at the top of the screen you can navigate to different views showing you either all games or just your games. The "My Games" view shows you only games you have created with games by other users you've liked displayed below. There is also a dropdown menu to select other users, and see their created and liked games.  The views for past games are identical to the upcoming games views except they only show games that have previously happened.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+All views have an "ADD GAME" button at the top which will navigate you to form to create a new game.
 
-### Code Splitting
+Provided a game is on today's date or has already happened, and you have liked that game you will be presented with a "RECORD STATS" button. This button will navigate you to a form used to record your stats for that particular game. Once stats have been recorded for a game you will be presented with a "SEE STATS" button that triggers a window showing the stats for that game, and allowing you to edit or delete those stats.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Screenshots
 
-### Analyzing the Bundle Size
+![App Screenshot](/public/images/readme1.png)
+![App Screenshot](/public/images/readme2.png)
+![App Screenshot](/public/images/readme3.png)
+![App Screenshot](/public/images/readme4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Planning
 
-### Making a Progressive Web App
+### Entity Relationship Diagram
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Pick Up & Play ERD ](/public/images/erd.png)
 
-### Advanced Configuration
+### Initial wireframes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![Main View Wireframe](/public/images/MainView.jpg)
+![Game Card Wireframe](/public/images/GameCard.jpg)
+![Game Form Wireframe](/public/images/updated-game-form.jpg)
 
-### Deployment
+## Favorite Code Snippet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+const getArrayToSetMyLikedGames = () => {
+    let usersLikedGames = []
+    getAllUpcomingGames()
+    .then(everyGame => {
+        getLikesByUserId(userId)
+        .then(usersLikes => {
+            for (const like of usersLikes) {
+                const likedGame = everyGame.find(game => game.id === like.gameId)
+                if (likedGame !== undefined) {
+                    usersLikedGames.push(likedGame)
+                }
+            }
+            const likedGamesWithoutCreatedOnes = usersLikedGames.filter(game => game.userId !== userId)
+            setMyLikedGames(likedGamesWithoutCreatedOnes)
+        })
+    })
+}
+```
+## Author Info
+**Created by Lee Jennings**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- LinkedIn - [Lee Jennings](https://www.linkedin.com/in/leejennings/)
+- GitHub - [@LeeRJennings](https://github.com/LeeRJennings)
