@@ -1,5 +1,3 @@
-![Pick Up & Play logo](/public/images/PickUpAndPlay.png)
-
 # Pick Up & Play
 
 Pick Up & Play is a web app for Ultimate Frisbee enthusiasts in the greater Nashville area. The Nashvile Ultimate community currently uses 3 to 4 threads in the app GroupMe to plan and coordinate pick-up games. It can become confusing navigating through multiple threads and on-going conversations to find a game in your area, or on a specific date. Pick Up & Play provides users with a simple way to create and see any upcoming games, filter those games by different criteria, and even record their stats for previous games.
@@ -67,8 +65,9 @@ Provided a game is on today's date or has already happened, and you have liked t
 ## Screenshots
 
 ![App Screenshot](/public/images/readme1.png)
+
 ![App Screenshot](/public/images/readme2.png)
-![App Screenshot](/public/images/readme3.png)
+
 ![App Screenshot](/public/images/readme4.png)
 
 ## Planning
@@ -85,8 +84,7 @@ Provided a game is on today's date or has already happened, and you have liked t
 
 ## Favorite Code Snippet
 
-```
-
+```js
 const getArrayToSetMyLikedGames = () => {
     let usersLikedGames = []
     getAllUpcomingGames()
@@ -105,6 +103,7 @@ const getArrayToSetMyLikedGames = () => {
     })
 }
 ```
+
 ## Author Info
 **Created by Lee Jennings**
 
