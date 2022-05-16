@@ -113,13 +113,12 @@ export const GameCard = ({game, loggedInUser, handleDeleteGame, handleGameLike, 
                 <div className="cardButtons">
                     <div className="editAndDeleteButtons">
                         {game.userId === loggedInUser.id ? 
+                            <>
                             <Link to={`/${game.id}/edit`}>
                                 <button type="button">EDIT</button>
                             </Link>
-                            : ""
-                        }
-                        {game.userId === loggedInUser.id ?
                             <button type="button" onClick={() => handleDeleteGame(game.id)}>DELETE</button>
+                            </>
                             : ""
                         }
                     </div>

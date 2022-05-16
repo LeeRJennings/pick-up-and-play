@@ -28,48 +28,6 @@
   ],
   "games": [
     {
-      "userId": 5,
-      "areaId": 2,
-      "parkName": "Cleveland Park",
-      "address": "1004 N 7th St",
-      "date": "2022-04-24",
-      "time": "14:00",
-      "skillLevelId": 2,
-      "additionalInfo": {
-        "cleatsRequired": true,
-        "whiteAndDarkShirt": true,
-        "barefootFriendly": false,
-        "dogsAllowed": false,
-        "playgroundNearby": false,
-        "bathroomsNearby": true,
-        "drinkingWaterNearby": false,
-        "allAges": true,
-        "eighteenPlus": false
-      },
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "areaId": 2,
-      "parkName": "East Park",
-      "address": "700 Woodland Street",
-      "date": "2022-04-27",
-      "time": "17:30",
-      "skillLevelId": 1,
-      "additionalInfo": {
-        "cleatsRequired": false,
-        "whiteAndDarkShirt": true,
-        "barefootFriendly": false,
-        "dogsAllowed": true,
-        "playgroundNearby": true,
-        "bathroomsNearby": true,
-        "drinkingWaterNearby": true,
-        "allAges": false,
-        "eighteenPlus": false
-      },
-      "id": 2
-    },
-    {
       "userId": 1,
       "areaId": 2,
       "parkName": "Cleveland Park",
@@ -200,27 +158,6 @@
       "areaId": 1,
       "parkName": "Ted Rhodes Fields",
       "address": "720 Mainstream Dr",
-      "date": "2022-04-28",
-      "time": "18:00",
-      "skillLevelId": 3,
-      "additionalInfo": {
-        "cleatsRequired": true,
-        "whiteAndDarkShirt": true,
-        "barefootFriendly": false,
-        "dogsAllowed": false,
-        "playgroundNearby": false,
-        "bathroomsNearby": false,
-        "drinkingWaterNearby": false,
-        "allAges": false,
-        "eighteenPlus": true
-      },
-      "id": 9
-    },
-    {
-      "userId": 3,
-      "areaId": 1,
-      "parkName": "Ted Rhodes Fields",
-      "address": "720 Mainstream Dr",
       "date": "2022-05-05",
       "time": "18:00",
       "skillLevelId": 3,
@@ -284,27 +221,6 @@
       "areaId": 5,
       "parkName": "Brentwood Baptist",
       "address": "7777 Concord Rd",
-      "date": "2022-04-30",
-      "time": "10:00",
-      "skillLevelId": 1,
-      "additionalInfo": {
-        "cleatsRequired": false,
-        "whiteAndDarkShirt": false,
-        "barefootFriendly": true,
-        "dogsAllowed": false,
-        "playgroundNearby": false,
-        "bathroomsNearby": true,
-        "drinkingWaterNearby": true,
-        "allAges": true,
-        "eighteenPlus": false
-      },
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "areaId": 5,
-      "parkName": "Brentwood Baptist",
-      "address": "7777 Concord Rd",
       "date": "2022-05-07",
       "time": "10:00",
       "skillLevelId": 1,
@@ -359,7 +275,7 @@
         "bathroomsNearby": true,
         "drinkingWaterNearby": true,
         "allAges": false,
-        "eighteenPlus": true
+        "eighteenPlus": false
       },
       "id": 16
     },
@@ -488,19 +404,114 @@
         "eighteenPlus": false
       },
       "id": 22
+    },
+    {
+      "userId": 1,
+      "areaId": 2,
+      "parkName": "Cleveland Park",
+      "address": "1004 N 7th St",
+      "date": "2022-05-22",
+      "time": "14:00",
+      "skillLevelId": "2",
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": false,
+        "allAges": true,
+        "eighteenPlus": false
+      },
+      "id": 23
+    },
+    {
+      "userId": 1,
+      "areaId": 2,
+      "parkName": "East Park",
+      "address": "700 Woodland Street",
+      "date": "2022-05-25",
+      "time": "17:30",
+      "skillLevelId": 1,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": true,
+        "playgroundNearby": true,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": false
+      },
+      "id": 24
+    },
+    {
+      "userId": 2,
+      "areaId": 5,
+      "parkName": "Brentwood Baptist",
+      "address": "7777 Concord Rd",
+      "date": "2022-05-28",
+      "time": "10:00",
+      "skillLevelId": 1,
+      "additionalInfo": {
+        "cleatsRequired": false,
+        "whiteAndDarkShirt": false,
+        "barefootFriendly": true,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": true,
+        "allAges": false,
+        "eighteenPlus": false
+      },
+      "id": 25
+    },
+    {
+      "userId": 3,
+      "areaId": 1,
+      "parkName": "Ted Rhodes Fields",
+      "address": "720 Mainstream Dr",
+      "date": "2022-05-23",
+      "time": "18:00",
+      "skillLevelId": 3,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": false,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": true
+      },
+      "id": 26
+    },
+    {
+      "userId": 5,
+      "areaId": 3,
+      "parkName": "Fair Park",
+      "address": "Bransford Ave",
+      "date": "2022-05-24",
+      "time": "17:00",
+      "skillLevelId": 2,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": false
+      },
+      "id": 27
     }
   ],
   "likes": [
-    {
-      "userId": 1,
-      "gameId": 2,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "gameId": 1,
-      "id": 2
-    },
     {
       "userId": 1,
       "gameId": 3,
@@ -553,18 +564,8 @@
     },
     {
       "userId": 3,
-      "gameId": 9,
-      "id": 14
-    },
-    {
-      "userId": 3,
       "gameId": 3,
       "id": 15
-    },
-    {
-      "userId": 3,
-      "gameId": 1,
-      "id": 16
     },
     {
       "userId": 2,
@@ -620,11 +621,6 @@
       "userId": 5,
       "gameId": 17,
       "id": 27
-    },
-    {
-      "userId": 5,
-      "gameId": 9,
-      "id": 28
     },
     {
       "userId": 4,
@@ -712,26 +708,6 @@
       "id": 45
     },
     {
-      "userId": 4,
-      "gameId": 13,
-      "id": 46
-    },
-    {
-      "userId": 4,
-      "gameId": 9,
-      "id": 47
-    },
-    {
-      "userId": 4,
-      "gameId": 2,
-      "id": 48
-    },
-    {
-      "userId": 4,
-      "gameId": 1,
-      "id": 49
-    },
-    {
       "userId": 1,
       "gameId": 19,
       "id": 51
@@ -757,11 +733,6 @@
       "id": 55
     },
     {
-      "userId": 3,
-      "gameId": 13,
-      "id": 56
-    },
-    {
       "userId": 5,
       "gameId": 22,
       "id": 57
@@ -785,6 +756,71 @@
       "userId": 1,
       "gameId": 4,
       "id": 61
+    },
+    {
+      "userId": 3,
+      "gameId": 19,
+      "id": 62
+    },
+    {
+      "userId": 3,
+      "gameId": 24,
+      "id": 63
+    },
+    {
+      "userId": 3,
+      "gameId": 25,
+      "id": 64
+    },
+    {
+      "userId": 3,
+      "gameId": 26,
+      "id": 65
+    },
+    {
+      "userId": 4,
+      "gameId": 23,
+      "id": 66
+    },
+    {
+      "userId": 4,
+      "gameId": 26,
+      "id": 67
+    },
+    {
+      "userId": 4,
+      "gameId": 24,
+      "id": 68
+    },
+    {
+      "userId": 4,
+      "gameId": 25,
+      "id": 69
+    },
+    {
+      "userId": 1,
+      "gameId": 23,
+      "id": 70
+    },
+    {
+      "userId": 1,
+      "gameId": 24,
+      "id": 71
+    },
+    {
+      "userId": 5,
+      "gameId": 27,
+      "id": 72
+    },
+    {
+      "userId": 1,
+      "gameId": 21,
+      "id": 73
+    },
+    {
+      "userId": 1,
+      "gameId": 15,
+      "id": 74
     }
   ],
   "stats": [
@@ -816,15 +852,6 @@
       "id": 4
     },
     {
-      "userId": 1,
-      "gameId": 1,
-      "goals": 0,
-      "assists": 0,
-      "blocks": 0,
-      "turnovers": 0,
-      "id": 5
-    },
-    {
       "userId": 5,
       "gameId": 10,
       "goals": 1,
@@ -832,6 +859,15 @@
       "blocks": 0,
       "turnovers": 0,
       "id": 6
+    },
+    {
+      "userId": 1,
+      "gameId": 7,
+      "goals": 2,
+      "assists": 4,
+      "blocks": 1,
+      "turnovers": 1,
+      "id": 7
     }
   ],
   "skillLevels": [
