@@ -823,6 +823,15 @@
       "blocks": 0,
       "turnovers": 0,
       "id": 5
+    },
+    {
+      "userId": 5,
+      "gameId": 10,
+      "goals": 1,
+      "assists": 0,
+      "blocks": 0,
+      "turnovers": 0,
+      "id": 6
     }
   ],
   "skillLevels": [
