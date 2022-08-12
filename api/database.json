@@ -509,6 +509,27 @@
         "eighteenPlus": false
       },
       "id": 27
+    },
+    {
+      "userId": 1,
+      "areaId": 3,
+      "parkName": "Test Park",
+      "address": "123 Test blvd",
+      "date": "2022-08-14",
+      "time": "09:30",
+      "skillLevelId": 2,
+      "additionalInfo": {
+        "cleatsRequired": true,
+        "whiteAndDarkShirt": true,
+        "barefootFriendly": false,
+        "dogsAllowed": false,
+        "playgroundNearby": false,
+        "bathroomsNearby": true,
+        "drinkingWaterNearby": false,
+        "allAges": false,
+        "eighteenPlus": true
+      },
+      "id": 28
     }
   ],
   "likes": [
@@ -821,6 +842,16 @@
       "userId": 1,
       "gameId": 15,
       "id": 74
+    },
+    {
+      "userId": 1,
+      "gameId": 25,
+      "id": 75
+    },
+    {
+      "userId": 1,
+      "gameId": 28,
+      "id": 76
     }
   ],
   "stats": [
@@ -866,8 +897,17 @@
       "goals": 2,
       "assists": 4,
       "blocks": 1,
-      "turnovers": 1,
+      "turnovers": 0,
       "id": 7
+    },
+    {
+      "userId": 1,
+      "gameId": 25,
+      "goals": 1,
+      "assists": 1,
+      "blocks": 0,
+      "turnovers": 0,
+      "id": 8
     }
   ],
   "skillLevels": [
